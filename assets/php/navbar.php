@@ -1,9 +1,10 @@
 <?php
 $nav_tabs = [
-    ['label' => 'Dashboard', 'href' => '#',         'id' => 'dashboard', 'active' => true],
-    ['label' => 'Tasks',     'href' => '#tasks',     'id' => 'tasks',     'active' => false],
-    ['label' => 'Calendar',  'href' => '#calendar',  'id' => 'calendar',  'active' => false],
-    ['label' => 'Workers',   'href' => '#workers',   'id' => 'workers',   'active' => false],
+    ['label' => 'Home',      'href' => '#hero',      'id' => 'home',      'active' => true],
+    ['label' => 'Services',  'href' => '#services',  'id' => 'services',  'active' => false],
+    ['label' => 'Portfolio', 'href' => '#portfolio', 'id' => 'portfolio', 'active' => false],
+    ['label' => 'About',     'href' => '#about',     'id' => 'about',     'active' => false],
+    ['label' => 'Contact',   'href' => '#contact',   'id' => 'contact',   'active' => false],
 ];
 ?>
 
@@ -12,7 +13,7 @@ $nav_tabs = [
 
         <!-- LEFT: Logo -->
         <a href="#" class="agro-nav__logo">
-            <img src="assets/images/logo.png" alt="UIDIGITAX" class="agro-nav__logo-img">
+            <img src="assets/images/logo2.png" alt="UIDIGITAX" class="agro-nav__logo-img">
         </a>
 
         <!-- CENTER: Tab Pills -->

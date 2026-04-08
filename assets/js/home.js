@@ -5,22 +5,6 @@
 (function () {
     "use strict";
 
-    /* ---- NAV scroll effect ---- */
-    const nav = document.getElementById("nav");
-
-    function onScroll() {
-        if (window.scrollY > 40) {
-            nav.style.background = "rgba(11,13,11,0.96)";
-            nav.style.borderBottomColor = "rgba(255,255,255,0.10)";
-        } else {
-            nav.style.background = "rgba(11,13,11,0.7)";
-            nav.style.borderBottomColor = "rgba(255,255,255,0.07)";
-        }
-    }
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-
-
     /* ---- Floating tags gentle idle drift ---- */
     const tags = document.querySelectorAll(".tag");
 
@@ -37,6 +21,36 @@
 
         requestAnimationFrame(drift);
     });
+
+    /* ---- Hero heading typewriter ---- */
+    var heroHeading = document.querySelector(".hero__heading");
+    var typeTarget = document.getElementById("heroTypewriter");
+    var caret = document.querySelector(".hero__caret");
+
+    function runTypewriter() {
+        if (!heroHeading || !typeTarget) return;
+
+        var source = heroHeading.getAttribute("data-text") || "";
+        var index = 0;
+
+        typeTarget.textContent = "";
+
+        function typeNext() {
+            if (index < source.length) {
+                typeTarget.textContent += source.charAt(index);
+                index += 1;
+                setTimeout(typeNext, index < 12 ? 55 : 34);
+            } else if (caret) {
+                setTimeout(function () {
+                    caret.style.opacity = "0";
+                }, 1400);
+            }
+        }
+
+        setTimeout(typeNext, 250);
+    }
+
+    runTypewriter();
 
 
     /* ---- Intersection observer for about section ---- */

@@ -45,9 +45,12 @@ $logos = ['CloudWatch', 'Boltshift', 'Epicurious', 'Sisyphus', 'Nietzsche', 'Quo
     </div>
 
     <div class="hero__content">
-        <h1 class="hero__heading">
-            A Consulting Partner for<br/>
-            Startups Ready to Scale.
+        <span class="hero__eyebrow">Growth strategy, design, and execution</span>
+        <h1 class="hero__heading" data-text="A Consulting Partner for Startups Ready to Scale.">
+            <span class="hero__heading-line">
+                <span class="hero__typewriter" id="heroTypewriter"></span>
+                <span class="hero__caret" aria-hidden="true"></span>
+            </span>
         </h1>
         <p class="hero__sub">
             From strategic planning to digital transformation, we help growing companies.
@@ -85,7 +88,7 @@ $logos = ['CloudWatch', 'Boltshift', 'Epicurious', 'Sisyphus', 'Nietzsche', 'Quo
 </section>
 
 <!-- PLANS -->
-<section class="plans" id="plans">
+<section class="plans" id="services">
     <div class="plans__header">
         <h2>Built for Every Stage of Growth.</h2>
     </div>
@@ -128,7 +131,7 @@ $logos = ['CloudWatch', 'Boltshift', 'Epicurious', 'Sisyphus', 'Nietzsche', 'Quo
     </div>
 </section>
 
-<section class="scale-cta">
+<section class="scale-cta" id="portfolio">
     <div class="scale-cta__inner">
         <h2>Ready to Scale Your Business with Clarity?</h2>
         <p>Let us build a strategy that future-proofs your growth and keeps execution moving.</p>
@@ -136,7 +139,7 @@ $logos = ['CloudWatch', 'Boltshift', 'Epicurious', 'Sisyphus', 'Nietzsche', 'Quo
     </div>
 </section>
 
-<footer class="site-footer">
+<footer class="site-footer" id="contact">
     <div class="footer__grid">
         <div class="footer__brand">
             <p class="footer__title">Avenor</p>
