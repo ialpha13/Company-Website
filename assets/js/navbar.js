@@ -55,7 +55,7 @@
     /* ── Scroll: increase opacity ─────────────────────────── */
     function handleScroll() {
         if (!nav) return;
-        if (window.scrollY > 20) {
+        if (window.scrollY > 80) {
             nav.classList.add('agro-nav--scrolled');
         } else {
             nav.classList.remove('agro-nav--scrolled');
@@ -133,5 +133,6 @@
 
     /* ── Init ─────────────────────────────────────────────── */
     initIndicator();
+    handleScroll();
 
 }());
