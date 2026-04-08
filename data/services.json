@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Web Development",
+    "description": "Build modern websites and web applications using HTML, CSS, JavaScript, and PHP with responsive interactions.",
+    "features": [
+      "Custom landing pages",
+      "Responsive user interfaces",
+      "Performance optimization"
+    ]
+  },
+  {
+    "title": "Video Editing",
+    "description": "Create polished motion content for social media, brand launches, ads, and product storytelling.",
+    "features": [
+      "Social media reels",
+      "Promotional videos",
+      "Post-production polish"
+    ]
+  },
+  {
+    "title": "Design",
+    "description": "Craft visual systems, branding, and website layouts that feel premium, modern, and consistent across screens.",
+    "features": [
+      "UI/UX design",
+      "Brand identity",
+      "Creative assets"
+    ]
+  },
+  {
+    "title": "Social Media Management",
+    "description": "Plan, publish, and optimize campaigns across platforms to grow engagement and brand visibility.",
+    "features": [
+      "Content planning",
+      "Community engagement",
+      "Performance reporting"
+    ]
+  },
+  {
+    "title": "Digital Marketing",
+    "description": "Drive leads and traffic with data-led campaigns tailored for search, social, and conversions.",
+    "features": [
+      "Paid ads",
+      "SEO & content",
+      "Conversion tracking"
+    ]
+  }
+]
