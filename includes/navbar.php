@@ -3,12 +3,13 @@ $scriptName = str_replace('\\', '/', $_SERVER['SCRIPT_NAME'] ?? '');
 $currentPage = basename($scriptName);
 $currentDir = basename(dirname($scriptName));
 $isPortfolioDetail = $currentDir === 'portfolios';
+$isBlogDetail = $currentDir === 'blogs';
 
 $nav_tabs = [
     ['label' => 'Home', 'href' => 'pages/home.php#hero', 'id' => 'home', 'active' => $currentPage === 'home.php'],
     ['label' => 'Services', 'href' => 'pages/services.php', 'id' => 'services', 'active' => $currentPage === 'services.php'],
     ['label' => 'Portfolio', 'href' => 'pages/portfolio.php', 'id' => 'portfolio', 'active' => $currentPage === 'portfolio.php' || $isPortfolioDetail],
-    ['label' => 'Blog', 'href' => 'pages/blog.php', 'id' => 'blog', 'active' => $currentPage === 'blog.php'],
+    ['label' => 'Blog', 'href' => 'pages/blog.php', 'id' => 'blog', 'active' => $currentPage === 'blog.php' || $isBlogDetail],
     ['label' => 'About', 'href' => 'pages/about.php', 'id' => 'about', 'active' => $currentPage === 'about.php'],
     ['label' => 'Contact', 'href' => 'pages/contact.php', 'id' => 'contact', 'active' => $currentPage === 'contact.php'],
 ];

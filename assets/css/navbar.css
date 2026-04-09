@@ -35,18 +35,17 @@
     border-radius: 44px;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
     opacity: 0;
-    transform: translateY(-18px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(0);
+    transition: opacity 0.3s ease;
     pointer-events: none;
 }
 
 .agro-nav.agro-nav--scrolled {
-    padding-top: 10px;
+    padding: 10px 24px;
 }
 
 .agro-nav.agro-nav--scrolled::before {
     opacity: 1;
-    transform: translateY(0);
 }
 
 /* ---------- Inner layout ---------- */
@@ -60,6 +59,7 @@
     margin: 0 auto;
     gap: 16px;
     padding: 6px 12px;
+    min-height: 48px;
 }
 
 /* ---------- Logo ---------- */
@@ -317,6 +317,10 @@
         padding: 10px 18px;
     }
 
+    .agro-nav.agro-nav--scrolled {
+        padding: 10px 18px;
+    }
+
     .agro-nav__inner {
         padding: 6px 12px;
     }
@@ -330,6 +334,10 @@
 /* ---------- Responsive: mobile (≤768px) ---------- */
 @media (max-width: 768px) {
     .agro-nav {
+        padding: 8px 16px;
+    }
+
+    .agro-nav.agro-nav--scrolled {
         padding: 8px 16px;
     }
 

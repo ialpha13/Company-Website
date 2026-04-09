@@ -45,12 +45,12 @@ if ($service === null) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <base href="<?php echo $baseUrl; ?>">
-    <link rel="stylesheet" href="assets/css/navbar.css" />
-    <link rel="stylesheet" href="assets/css/footer.css" />
     <link rel="stylesheet" href="assets/css/portfolios/base.css" />
     <?php if ($portfolioCss !== ''): ?>
         <link rel="stylesheet" href="<?php echo htmlspecialchars($portfolioCss); ?>" />
     <?php endif; ?>
+    <link rel="stylesheet" href="assets/css/navbar.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
 </head>
 <body>
 

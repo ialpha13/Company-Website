@@ -475,6 +475,7 @@ body {
 .insight-strip,
 .showcase,
 .workflow-band,
+.home-journal,
 .testimonials-wall {
     max-width: 1180px;
     margin: 0 auto;
@@ -732,6 +733,137 @@ body {
 .showcase-card p {
     color: var(--muted);
     font-size: 14px;
+}
+
+.home-journal {
+    padding-top: 8px;
+    padding-bottom: 88px;
+}
+
+.home-journal__header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 36px;
+    align-items: end;
+    margin-bottom: 30px;
+}
+
+.home-journal__header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4.2vw, 54px);
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+    color: #fff;
+    margin-top: 18px;
+}
+
+.home-journal__aside {
+    display: grid;
+    justify-items: start;
+    gap: 18px;
+}
+
+.home-journal__aside p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.home-journal__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.88fr);
+    gap: 22px;
+}
+
+.home-journal__featured,
+.home-journal__card {
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 28px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.03);
+    box-shadow: 0 28px 70px rgba(0,0,0,0.2);
+}
+
+.home-journal__featured-link,
+.home-journal__card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+}
+
+.home-journal__featured-media {
+    min-height: 520px;
+    display: flex;
+    align-items: flex-end;
+    background-position: center;
+    background-size: cover;
+}
+
+.home-journal__featured-overlay {
+    width: 100%;
+    padding: 28px;
+    background: linear-gradient(180deg, rgba(8, 12, 10, 0.05) 0%, rgba(8, 12, 10, 0.82) 100%);
+}
+
+.home-journal__meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    color: rgba(232,229,220,0.65);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.home-journal__featured h3,
+.home-journal__card h3 {
+    margin: 14px 0 0;
+    font-family: var(--font-display);
+    color: #fff;
+    line-height: 1.08;
+}
+
+.home-journal__featured h3 {
+    font-size: clamp(30px, 3.5vw, 46px);
+}
+
+.home-journal__featured p,
+.home-journal__card p {
+    margin: 14px 0 0;
+    color: rgba(232,229,220,0.76);
+}
+
+.home-journal__stack {
+    display: grid;
+    gap: 22px;
+}
+
+.home-journal__card-link {
+    display: grid;
+    grid-template-columns: 170px minmax(0, 1fr);
+    min-height: 100%;
+}
+
+.home-journal__card-media {
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.home-journal__card-body {
+    padding: 22px;
+}
+
+.home-journal__card h3 {
+    font-size: 24px;
+}
+
+.home-journal__cta {
+    display: inline-flex;
+    margin-top: 18px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .workflow-band {
@@ -1062,6 +1194,10 @@ body {
         grid-template-columns: 1fr;
     }
 
+    .home-journal__header {
+        grid-template-columns: 1fr;
+    }
+
     .plans__cards {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 20px;
@@ -1070,6 +1206,14 @@ body {
     .showcase__grid,
     .testimonials-wall__grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .home-journal__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .home-journal__featured-media {
+        min-height: 430px;
     }
 
     .workflow-band {
@@ -1130,6 +1274,7 @@ body {
     .insight-strip,
     .showcase,
     .workflow-band,
+    .home-journal,
     .testimonials-wall {
         padding-left: 20px;
         padding-right: 20px;
@@ -1154,6 +1299,18 @@ body {
     .showcase__grid,
     .testimonials-wall__grid {
         grid-template-columns: 1fr;
+    }
+
+    .home-journal__featured-media {
+        min-height: 360px;
+    }
+
+    .home-journal__card-link {
+        grid-template-columns: 1fr;
+    }
+
+    .home-journal__card-media {
+        min-height: 220px;
     }
 
     .showcase-card__media {
@@ -1216,6 +1373,7 @@ body {
     }
 
     .showcase__header h2,
+    .home-journal__header h2,
     .workflow-band__content h2,
     .testimonials-wall__header h2 {
         font-size: 30px;

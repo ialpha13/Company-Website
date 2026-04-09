@@ -35,9 +35,9 @@ foreach ($services as $service) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <base href="<?php echo $baseUrl; ?>">
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
     <link rel="stylesheet" href="assets/css/navbar.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
-    <link rel="stylesheet" href="assets/css/portfolio.css" />
 </head>
 <body>
 <?php include __DIR__ . '/../includes/navbar.php'; ?>
@@ -90,10 +90,9 @@ foreach ($services as $service) {
     </section>
 
     <section class="portfolio-cards">
-        <div class="portfolio-cards__intro">
-            <span class="portfolio-pill">Service Portfolios</span>
-            <h2>Choose a service and continue into its dedicated portfolio page.</h2>
-            <p>Each card represents a focused service line. Hover to reveal the next step, whether you want to explore the portfolio details or start a conversation about that service.</p>
+        <div class="portfolio-cards__heading">
+            <span class="portfolio-pill">Portfolio's</span>
+            <h2>Explore the portfolio's of the creative solutions</h2>
         </div>
 
         <div class="portfolio-card-grid">

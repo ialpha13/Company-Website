@@ -123,7 +123,6 @@ body {
 }
 
 .portfolio-hero__inner,
-.portfolio-cards__intro,
 .portfolio-card-grid,
 .portfolio-cta__inner {
     width: 100%;
@@ -235,7 +234,6 @@ body {
 
 .hero-media-tile__meta strong,
 .portfolio-card__face h3,
-.portfolio-cards__intro h2,
 .portfolio-cta h2 {
     display: block;
     margin: 0 0 8px;
@@ -248,7 +246,6 @@ body {
 }
 
 .hero-media-tile__meta p,
-.portfolio-cards__intro p,
 .portfolio-card__face p,
 .portfolio-cta p {
     margin: 0;
@@ -279,7 +276,6 @@ body {
     border-bottom: 9px solid transparent;
 }
 
-.portfolio-cards__intro,
 .portfolio-cta__inner {
     position: relative;
     overflow: hidden;
@@ -291,7 +287,6 @@ body {
     backdrop-filter: blur(16px);
 }
 
-.portfolio-cards__intro::before,
 .portfolio-cta__inner::before {
     content: "";
     position: absolute;
@@ -300,20 +295,17 @@ body {
     pointer-events: none;
 }
 
-.portfolio-cards__intro > *,
 .portfolio-cta__inner > * {
     position: relative;
     z-index: 1;
 }
 
-.portfolio-cards__intro h2,
 .portfolio-cta h2 {
     margin-top: 18px;
     font-size: clamp(1.85rem, 4vw, 3.8rem);
     letter-spacing: -0.04em;
 }
 
-.portfolio-cards__intro p,
 .portfolio-cta p {
     max-width: 64ch;
     width: 100%;
@@ -324,6 +316,19 @@ body {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: clamp(16px, 2vw, 22px);
     margin-top: 24px;
+}
+
+.portfolio-cards__heading {
+    margin-bottom: 24px;
+}
+
+.portfolio-cards__heading h2 {
+    margin: 14px 0 0;
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.85rem, 4vw, 3rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: var(--portfolio-text);
 }
 
 .portfolio-card {
@@ -511,7 +516,6 @@ body {
         padding-top: 104px;
     }
 
-    .portfolio-cards__intro,
     .portfolio-cta__inner {
         padding: 30px;
     }
@@ -555,12 +559,10 @@ body {
     }
 
     .portfolio-hero__inner,
-    .portfolio-cards__intro,
     .portfolio-cta__inner {
         padding: 20px;
     }
 
-    .portfolio-cards__intro h2,
     .portfolio-cta h2 {
         font-size: clamp(1.8rem, 8vw, 2.6rem);
         line-height: 1.08;
@@ -569,6 +571,10 @@ body {
     .portfolio-card-grid {
         grid-template-columns: 1fr;
         gap: 18px;
+    }
+
+    .portfolio-cards__heading h2 {
+        font-size: clamp(1.55rem, 7vw, 2.3rem);
     }
 
     .hero-media-tile__meta {
@@ -619,7 +625,6 @@ body {
     }
 
     .portfolio-hero__inner,
-    .portfolio-cards__intro,
     .portfolio-cta__inner {
         padding: 16px;
         border-radius: 24px;
@@ -737,12 +742,10 @@ body {
     }
 
     .portfolio-hero__inner,
-    .portfolio-cards__intro,
     .portfolio-cta__inner {
         padding: 14px;
     }
 
-    .portfolio-cards__intro h2,
     .portfolio-cta h2 {
         font-size: 1.55rem;
     }
@@ -769,9 +772,12 @@ body {
 
     .hero-media-tile__meta p,
     .portfolio-card__face p,
-    .portfolio-cards__intro p,
     .portfolio-cta p {
         font-size: 0.88rem;
+    }
+
+    .portfolio-cards__heading h2 {
+        font-size: 1.4rem;
     }
 
     .portfolio-card {

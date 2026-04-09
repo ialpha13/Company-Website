@@ -9,6 +9,14 @@ $floating_tags = [
     ['label' => 'Growth Analytics', 'class' => 'tag--bc'],
 ];
 $logos = ['CloudWatch', 'Boltshift', 'Epicurious', 'Sisyphus', 'Nietzsche', 'Quotient', 'Capsule'];
+$blogsPath = __DIR__ . '/../data/blogs.json';
+$featuredBlogs = [];
+if (is_file($blogsPath)) {
+    $decodedBlogs = json_decode(file_get_contents($blogsPath), true);
+    if (is_array($decodedBlogs)) {
+        $featuredBlogs = array_slice($decodedBlogs, 0, 3);
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -162,6 +170,61 @@ $logos = ['CloudWatch', 'Boltshift', 'Epicurious', 'Sisyphus', 'Nietzsche', 'Quo
         </article>
     </div>
 </section>
+
+<?php if (!empty($featuredBlogs)): ?>
+<section class="home-journal">
+    <div class="home-journal__header">
+        <div>
+            <span class="pill">Journal</span>
+            <h2>Ideas, strategy, and sharper digital thinking for brands building momentum.</h2>
+        </div>
+        <div class="home-journal__aside">
+            <p>Explore practical insights from UIDigitax across websites, SEO, content systems, creative direction, and digital growth strategy.</p>
+            <a href="pages/blog.php" class="btn btn--ghost">Read All Articles</a>
+        </div>
+    </div>
+    <div class="home-journal__layout">
+        <?php $primaryBlog = $featuredBlogs[0]; ?>
+        <article class="home-journal__featured">
+            <a href="blogs/<?php echo rawurlencode($primaryBlog['slug'] ?? ''); ?>.php" class="home-journal__featured-link">
+                <div class="home-journal__featured-media" style="background-image:
+                    linear-gradient(180deg, rgba(10, 14, 11, 0.06) 0%, rgba(10, 14, 11, 0.74) 100%),
+                    url('<?php echo htmlspecialchars($primaryBlog['hero_image'] ?? 'assets/images/hero.png'); ?>');">
+                    <div class="home-journal__featured-overlay">
+                        <div class="home-journal__meta">
+                            <span><?php echo htmlspecialchars($primaryBlog['category'] ?? 'Blog'); ?></span>
+                            <span><?php echo htmlspecialchars($primaryBlog['read_time'] ?? ''); ?></span>
+                        </div>
+                        <h3><?php echo htmlspecialchars($primaryBlog['title'] ?? 'Featured Article'); ?></h3>
+                        <p><?php echo htmlspecialchars($primaryBlog['excerpt'] ?? ''); ?></p>
+                        <span class="home-journal__cta">Read Article</span>
+                    </div>
+                </div>
+            </a>
+        </article>
+        <div class="home-journal__stack">
+            <?php foreach (array_slice($featuredBlogs, 1) as $post): ?>
+                <article class="home-journal__card">
+                    <a href="blogs/<?php echo rawurlencode($post['slug'] ?? ''); ?>.php" class="home-journal__card-link">
+                        <div class="home-journal__card-media" style="background-image:
+                            linear-gradient(180deg, rgba(10, 14, 11, 0.08) 0%, rgba(10, 14, 11, 0.68) 100%),
+                            url('<?php echo htmlspecialchars($post['hero_image'] ?? 'assets/images/hero.png'); ?>');"></div>
+                        <div class="home-journal__card-body">
+                            <div class="home-journal__meta">
+                                <span><?php echo htmlspecialchars($post['category'] ?? 'Blog'); ?></span>
+                                <span><?php echo htmlspecialchars($post['date'] ?? ''); ?></span>
+                            </div>
+                            <h3><?php echo htmlspecialchars($post['title'] ?? 'Article'); ?></h3>
+                            <p><?php echo htmlspecialchars($post['excerpt'] ?? ''); ?></p>
+                            <span class="home-journal__cta">Open Insight</span>
+                        </div>
+                    </a>
+                </article>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
 
 <section class="testimonials-wall">
     <div class="testimonials-wall__header">
