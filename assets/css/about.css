@@ -1,1 +1,410 @@
 @import url('pages.css');
+
+.about-metrics__grid,
+.about-process__steps,
+.about-team__grid {
+    display: grid;
+    gap: 20px;
+}
+
+.about-metrics__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.about-metrics__card,
+.about-story__panel,
+.about-process__step,
+.about-process__visual,
+.about-team__card {
+    border: 1px solid var(--page-border);
+    border-radius: 28px;
+    background: var(--page-surface);
+    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.16);
+}
+
+.about-metrics__card,
+.about-story__panel,
+.about-process__step,
+.about-process__visual {
+    padding: 28px;
+}
+
+.about-metrics__card,
+.about-values__card,
+.about-story__panel,
+.about-process__step,
+.about-process__visual,
+.about-team__card {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.55s ease, transform 0.55s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-metrics__card.is-visible,
+.about-values__card.is-visible,
+.about-story__panel.is-visible,
+.about-process__step.is-visible,
+.about-process__visual.is-visible,
+.about-team__card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-metrics__card:hover,
+.about-values__card:hover,
+.about-story__panel:hover,
+.about-process__step:hover,
+.about-process__visual:hover,
+.about-team__card:hover {
+    border-color: rgba(107, 159, 99, 0.42);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.2);
+}
+
+.about-metrics__label,
+.about-process__index {
+    display: inline-flex;
+    color: #cfe4c9;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.about-metrics__card strong {
+    display: block;
+    margin-top: 18px;
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    line-height: 0.95;
+    color: #fff;
+}
+
+.about-metrics__card p {
+    margin: 14px 0 0;
+    color: var(--page-muted);
+}
+
+.about-story {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) repeat(2, minmax(0, 0.72fr)) minmax(250px, 0.9fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.about-story__copy h3,
+.about-story__column h3,
+.about-story__panel h3,
+.about-process__step h3,
+.about-process__visual h3,
+.about-team__body h3 {
+    margin: 14px 0 0;
+    font-family: 'Syne', sans-serif;
+    line-height: 1.08;
+    color: #fff;
+}
+
+.about-story__copy h3,
+.about-story__column h3 {
+    font-size: clamp(1.7rem, 2.5vw, 2.3rem);
+}
+
+.about-story__copy p,
+.about-story__column p,
+.about-process__step p,
+.about-process__visual p,
+.about-team__body p,
+.about-cta p {
+    margin: 14px 0 0;
+    color: var(--page-muted);
+}
+
+.about-story__list {
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 0;
+    display: grid;
+    gap: 12px;
+}
+
+.about-story__list li {
+    position: relative;
+    padding-left: 18px;
+    color: var(--page-muted);
+}
+
+.about-story__list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--page-accent);
+}
+
+.about-process__heading {
+    max-width: 860px;
+}
+
+.about-process__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.92fr);
+    gap: 22px;
+    align-items: stretch;
+}
+
+.about-process__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.about-process__step {
+    display: grid;
+    gap: 18px;
+}
+
+.about-process__step h3 {
+    font-size: 1.75rem;
+}
+
+.about-process__visual {
+    position: relative;
+    overflow: hidden;
+    min-height: 100%;
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%),
+        url('../images/hero2.png') center/cover no-repeat;
+}
+
+.about-process__visual::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(8, 10, 8, 0.24) 0%, rgba(8, 10, 8, 0.86) 100%);
+    pointer-events: none;
+}
+
+.about-process__visual-copy,
+.about-process__rings {
+    position: relative;
+    z-index: 1;
+}
+
+.about-process__visual-copy {
+    max-width: 420px;
+}
+
+.about-process__visual h3 {
+    font-size: clamp(2rem, 3vw, 2.9rem);
+}
+
+.about-process__rings {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 34px;
+}
+
+.about-process__rings span {
+    position: absolute;
+    border: 2px solid rgba(255, 255, 255, 0.76);
+    border-radius: 50%;
+}
+
+.about-process__rings span:nth-child(1) {
+    inset: 0 38px 38px 0;
+}
+
+.about-process__rings span:nth-child(2) {
+    inset: 22px;
+}
+
+.about-process__rings span:nth-child(3) {
+    inset: 38px 0 0 38px;
+}
+
+.about-team__heading {
+    max-width: 860px;
+}
+
+.about-team__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.about-team__card {
+    overflow: hidden;
+}
+
+.about-team__media {
+    position: relative;
+    min-height: 260px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid var(--page-border);
+}
+
+.about-team__media::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(8, 10, 8, 0.08) 28%, rgba(8, 10, 8, 0.72) 100%);
+}
+
+.about-team__media--strategy {
+    background:
+        linear-gradient(180deg, rgba(61, 107, 68, 0.16) 0%, rgba(8, 10, 8, 0.14) 100%),
+        url('../images/hero.png') center/cover no-repeat;
+}
+
+.about-team__media--design {
+    background:
+        linear-gradient(180deg, rgba(214, 223, 199, 0.18) 0%, rgba(8, 10, 8, 0.12) 100%),
+        url('../images/hero2.png') center/cover no-repeat;
+}
+
+.about-team__media--growth {
+    background:
+        linear-gradient(180deg, rgba(81, 121, 74, 0.18) 0%, rgba(8, 10, 8, 0.14) 100%),
+        url('../images/logo2.png') center/cover no-repeat;
+}
+
+.about-team__media--content {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(8, 10, 8, 0.12) 100%),
+        url('../images/hero2.png') center/cover no-repeat;
+}
+
+.about-team__badge {
+    position: absolute;
+    left: 18px;
+    top: 18px;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 0 14px;
+    border-radius: 999px;
+    border: 1px solid var(--page-border);
+    background: rgba(8, 10, 8, 0.66);
+    color: rgba(242, 239, 229, 0.84);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    backdrop-filter: blur(12px);
+}
+
+.about-team__body {
+    padding: 24px;
+}
+
+.about-team__role {
+    display: inline-flex;
+    margin-bottom: 14px;
+    color: #cfe4c9;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.about-team__body h3 {
+    font-size: 28px;
+}
+
+.about-cta .page-cta__inner {
+    overflow: hidden;
+    position: relative;
+}
+
+.about-cta .page-cta__inner::before {
+    content: "";
+    position: absolute;
+    inset: -20% auto auto -10%;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(107, 159, 99, 0.18) 0%, transparent 68%);
+    pointer-events: none;
+}
+
+@media (max-width: 1180px) {
+    .about-story {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about-story__copy {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 1024px) {
+    .about-metrics__grid,
+    .about-process__steps,
+    .about-team__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about-process__layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-metrics__grid,
+    .about-story,
+    .about-process__steps,
+    .about-team__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-metrics__card,
+    .about-story__panel,
+    .about-process__step,
+    .about-process__visual {
+        padding: 22px;
+    }
+
+    .about-process__rings {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 28px;
+    }
+
+    .about-team__media {
+        min-height: 220px;
+    }
+
+    .about-team__body {
+        padding: 22px;
+    }
+}
+
+@media (max-width: 560px) {
+    .about-metrics__card strong {
+        font-size: 2.35rem;
+    }
+
+    .about-story__copy h3,
+    .about-story__column h3,
+    .about-process__step h3,
+    .about-team__body h3 {
+        font-size: 1.55rem;
+    }
+
+    .about-process__visual h3 {
+        font-size: 1.9rem;
+    }
+
+    .about-team__body {
+        padding: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-metrics__card,
+    .about-values__card,
+    .about-story__panel,
+    .about-process__step,
+    .about-process__visual,
+    .about-team__card {
+        transition: none;
+        transform: none !important;
+    }
+}

@@ -30,8 +30,8 @@
                 <div class="site-footer__column">
                     <span class="site-footer__label">Legal</span>
                     <div class="site-footer__stack">
-                        <a href="pages/contact.php">Privacy Policy</a>
-                        <a href="pages/contact.php">Terms &amp; Conditions</a>
+                        <a href="pages/privacy-policy.php">Privacy Policy</a>
+                        <a href="pages/terms-and-conditions.php">Terms &amp; Conditions</a>
                     </div>
                 </div>
             </div>
