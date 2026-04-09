@@ -1,47 +1,284 @@
 [
   {
+    "slug": "web-development",
     "title": "Web Development",
-    "description": "Build modern websites and web applications using HTML, CSS, JavaScript, and PHP with responsive interactions.",
+    "tags": ["Corporate Website", "Landing Page", "Custom Build"],
+    "description": "We design and build modern websites that look refined, communicate clearly, and convert attention into action.",
     "features": [
       "Custom landing pages",
       "Responsive user interfaces",
       "Performance optimization"
+    ],
+    "detail_intro": "Our web development work focuses on premium presentation, clean user flow, and a structure that supports long-term brand growth.",
+    "overview": [
+      "UIDigitax builds websites that balance visual refinement with practical business outcomes. Every project is shaped around user experience, content clarity, and scalable implementation.",
+      "From corporate websites to campaign landing pages, we create digital experiences that feel modern, load smoothly, and guide users toward meaningful action."
+    ],
+    "deliverables": [
+      "Website strategy and page architecture",
+      "Responsive UI implementation",
+      "Custom section design systems",
+      "Optimization for speed and usability"
+    ],
+    "portfolio_highlights": [
+      "Improved content hierarchy for stronger lead generation",
+      "Cleaner mobile-first layouts across key pages",
+      "Design systems built for future expansion"
+    ],
+    "media": [
+      {
+        "type": "screenshot",
+        "title": "Homepage redesign direction",
+        "caption": "A polished first-screen layout focused on messaging, conversion flow, and visual trust.",
+        "asset": "assets/images/hero.png"
+      },
+      {
+        "type": "screenshot",
+        "title": "Responsive section system",
+        "caption": "A modular design language adapted across desktop and mobile experiences.",
+        "asset": "assets/images/hero2.png"
+      },
+      {
+        "type": "video",
+        "title": "Website walkthrough reel",
+        "caption": "A presentation-style preview showing motion, interaction flow, and page rhythm for the final build.",
+        "asset": "assets/images/hero.png"
+      }
     ]
   },
   {
+    "slug": "video-editing",
     "title": "Video Editing",
-    "description": "Create polished motion content for social media, brand launches, ads, and product storytelling.",
+    "tags": ["Reels", "Promotional Video", "Brand Storytelling"],
+    "description": "We create motion content that feels polished, platform-aware, and aligned with your brand's message.",
     "features": [
       "Social media reels",
       "Promotional videos",
       "Post-production polish"
+    ],
+    "detail_intro": "Our video editing service turns raw footage and campaign ideas into sharper, more engaging visual stories for digital platforms.",
+    "overview": [
+      "Short-form motion content plays a major role in modern digital visibility. We edit with pacing, clarity, and platform behavior in mind so content feels intentional instead of generic.",
+      "Whether it is a launch reel, ad creative, or brand story sequence, we shape each cut around retention, storytelling, and visual consistency."
+    ],
+    "deliverables": [
+      "Short-form social edits",
+      "Promotional cutdowns and campaign videos",
+      "Brand-safe transitions and motion rhythm",
+      "Platform-ready exports"
+    ],
+    "portfolio_highlights": [
+      "Improved storytelling through tighter edit structure",
+      "More cohesive visual identity across video content",
+      "Optimized motion assets for campaign use"
+    ],
+    "media": [
+      {
+        "type": "screenshot",
+        "title": "Campaign frame direction",
+        "caption": "A storyboard-style still showing visual treatment and content hierarchy for brand motion.",
+        "asset": "assets/images/hero2.png"
+      },
+      {
+        "type": "video",
+        "title": "Launch reel preview",
+        "caption": "A highlight reel concept crafted for social distribution and promotional campaign rollouts.",
+        "asset": "assets/images/hero.png"
+      },
+      {
+        "type": "video",
+        "title": "Ad cut sequence preview",
+        "caption": "A fast-paced cut structure showing how promotional content is shaped for attention and clarity.",
+        "asset": "assets/images/hero2.png"
+      }
     ]
   },
   {
+    "slug": "design",
     "title": "Design",
-    "description": "Craft visual systems, branding, and website layouts that feel premium, modern, and consistent across screens.",
+    "tags": ["UI/UX", "Brand Identity", "Creative Systems"],
+    "description": "We craft visual systems and interfaces that feel modern, premium, and consistent across your digital ecosystem.",
     "features": [
       "UI/UX design",
       "Brand identity",
       "Creative assets"
+    ],
+    "detail_intro": "Our design work combines visual clarity with strategic intent, helping brands look sharper and communicate with more confidence.",
+    "overview": [
+      "Design at UIDigitax is not just decoration. It is the framework that shapes how your brand feels, how users move through content, and how your business presents itself digitally.",
+      "We create interface systems, brand directions, and campaign visuals that stay coherent across web, content, and social touchpoints."
+    ],
+    "deliverables": [
+      "Interface design systems",
+      "Creative direction and visual identity",
+      "Campaign and social asset design",
+      "Consistent component libraries"
+    ],
+    "portfolio_highlights": [
+      "Unified design language across digital channels",
+      "Higher perceived quality in brand presentation",
+      "Clearer user journeys through visual structure"
+    ],
+    "media": [
+      {
+        "type": "screenshot",
+        "title": "UI concept exploration",
+        "caption": "A screen design direction focused on spacing, hierarchy, and premium visual tone.",
+        "asset": "assets/images/hero.png"
+      },
+      {
+        "type": "screenshot",
+        "title": "Brand system presentation",
+        "caption": "A visual identity board showing consistency across digital assets and layouts.",
+        "asset": "assets/images/logo2.png"
+      },
+      {
+        "type": "video",
+        "title": "Design showcase reel",
+        "caption": "A motion presentation of brand and interface applications across modern screens.",
+        "asset": "assets/images/hero2.png"
+      }
     ]
   },
   {
+    "slug": "social-media-management",
     "title": "Social Media Management",
-    "description": "Plan, publish, and optimize campaigns across platforms to grow engagement and brand visibility.",
+    "tags": ["Content Planning", "Community", "Growth Reporting"],
+    "description": "We plan, publish, and optimize social content to improve consistency, engagement, and brand visibility.",
     "features": [
       "Content planning",
       "Community engagement",
       "Performance reporting"
+    ],
+    "detail_intro": "Our social media management service brings structure to content calendars, stronger creative consistency, and a clearer path to audience growth.",
+    "overview": [
+      "A strong social presence is built on planning, content rhythm, and relevance. We help brands stay visible with content systems that are organized, intentional, and easier to scale.",
+      "From monthly planning to performance review, we focus on consistent output that strengthens identity and supports wider campaign goals."
+    ],
+    "deliverables": [
+      "Monthly content planning",
+      "Post scheduling and campaign coordination",
+      "Audience engagement support",
+      "Reporting and optimization reviews"
+    ],
+    "portfolio_highlights": [
+      "Improved consistency across publishing cycles",
+      "Stronger alignment between visuals and messaging",
+      "More structured reporting for content decisions"
+    ],
+    "media": [
+      {
+        "type": "screenshot",
+        "title": "Content grid direction",
+        "caption": "A planned social layout designed to strengthen consistency and visual recognition.",
+        "asset": "assets/images/hero2.png"
+      },
+      {
+        "type": "screenshot",
+        "title": "Campaign planning dashboard",
+        "caption": "A scheduling and reporting view used to organize content themes and output.",
+        "asset": "assets/images/hero.png"
+      },
+      {
+        "type": "video",
+        "title": "Social content reel preview",
+        "caption": "A short-form motion concept showing campaign pacing and visual variety for social channels.",
+        "asset": "assets/images/hero2.png"
+      }
     ]
   },
   {
+    "slug": "digital-marketing",
     "title": "Digital Marketing",
-    "description": "Drive leads and traffic with data-led campaigns tailored for search, social, and conversions.",
+    "tags": ["Paid Ads", "SEO", "Conversion Strategy"],
+    "description": "We create data-informed digital marketing systems that increase reach, improve visibility, and support conversion growth.",
     "features": [
       "Paid ads",
       "SEO & content",
       "Conversion tracking"
+    ],
+    "detail_intro": "Our digital marketing service is built around performance, helping brands connect message, traffic, and conversion into one measurable growth system.",
+    "overview": [
+      "Digital marketing works best when strategy, content, targeting, and analysis all support the same outcome. We help brands move beyond scattered activity into focused campaigns that can scale.",
+      "Whether through search visibility, paid campaigns, or conversion refinement, our work is designed to improve performance while keeping the brand message clear."
+    ],
+    "deliverables": [
+      "Campaign strategy and setup",
+      "SEO and content alignment",
+      "Paid media direction",
+      "Tracking and conversion improvement"
+    ],
+    "portfolio_highlights": [
+      "Clearer campaign structure across platforms",
+      "Improved visibility through search-focused planning",
+      "Better decision-making through measurable reporting"
+    ],
+    "media": [
+      {
+        "type": "screenshot",
+        "title": "Campaign analytics snapshot",
+        "caption": "A reporting-style overview showing traffic patterns, visibility, and performance direction.",
+        "asset": "assets/images/hero.png"
+      },
+      {
+        "type": "screenshot",
+        "title": "Search growth planning board",
+        "caption": "A keyword and content structure used to improve discoverability and relevance.",
+        "asset": "assets/images/hero2.png"
+      },
+      {
+        "type": "video",
+        "title": "Performance campaign walkthrough",
+        "caption": "A presentation preview showing ad direction, reporting rhythm, and optimization flow.",
+        "asset": "assets/images/hero.png"
+      }
+    ]
+  },
+  {
+    "slug": "seo",
+    "title": "SEO",
+    "tags": ["Technical SEO", "On-Page SEO", "Content Strategy"],
+    "description": "We improve search visibility through technical optimization, keyword targeting, and content structure built for sustainable organic growth.",
+    "features": [
+      "Technical SEO audits",
+      "Keyword and content planning",
+      "On-page optimization"
+    ],
+    "detail_intro": "Our SEO service helps brands become easier to discover, easier to trust, and better positioned to grow through organic search.",
+    "overview": [
+      "SEO at UIDigitax is built around long-term visibility rather than short-term traffic spikes. We align technical foundations, content direction, and on-page structure to support stronger search presence.",
+      "From audit and keyword planning to content improvements and tracking, we help brands build a search strategy that supports awareness, relevance, and conversion."
+    ],
+    "deliverables": [
+      "Technical SEO and site health review",
+      "Keyword mapping and content structure",
+      "On-page optimization recommendations",
+      "Search performance reporting"
+    ],
+    "portfolio_highlights": [
+      "Improved discoverability through targeted search strategy",
+      "Stronger content structure for ranking opportunities",
+      "More consistent reporting on visibility and growth"
+    ],
+    "media": [
+      {
+        "type": "screenshot",
+        "title": "SEO audit dashboard",
+        "caption": "A technical review snapshot showing search health, page priorities, and optimization direction.",
+        "asset": "assets/images/hero.png"
+      },
+      {
+        "type": "screenshot",
+        "title": "Keyword mapping framework",
+        "caption": "A planning view used to align content themes, target queries, and landing page opportunities.",
+        "asset": "assets/images/hero2.png"
+      },
+      {
+        "type": "video",
+        "title": "Search growth presentation",
+        "caption": "A presentation-style walkthrough showing SEO priorities, content opportunities, and reporting flow.",
+        "asset": "assets/images/hero.png"
+      }
     ]
   }
 ]

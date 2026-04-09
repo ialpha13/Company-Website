@@ -1,22 +1,22 @@
 <?php
+$currentPage = basename($_SERVER['SCRIPT_NAME']);
 $nav_tabs = [
-    ['label' => 'Home',      'href' => '#hero',      'id' => 'home',      'active' => true],
-    ['label' => 'Services',  'href' => '#services',  'id' => 'services',  'active' => false],
-    ['label' => 'Portfolio', 'href' => '#portfolio', 'id' => 'portfolio', 'active' => false],
-    ['label' => 'About',     'href' => '#about',     'id' => 'about',     'active' => false],
-    ['label' => 'Contact',   'href' => '#contact',   'id' => 'contact',   'active' => false],
+    ['label' => 'Home', 'href' => 'pages/home.php#hero', 'id' => 'home', 'active' => $currentPage === 'home.php'],
+    ['label' => 'Services', 'href' => 'pages/services.php', 'id' => 'services', 'active' => in_array($currentPage, ['services.php', 'service-portfolio.php'], true)],
+    ['label' => 'Portfolio', 'href' => 'pages/portfolio.php', 'id' => 'portfolio', 'active' => $currentPage === 'portfolio.php'],
+    ['label' => 'Blog', 'href' => 'pages/blog.php', 'id' => 'blog', 'active' => $currentPage === 'blog.php'],
+    ['label' => 'About', 'href' => 'pages/about.php', 'id' => 'about', 'active' => $currentPage === 'about.php'],
+    ['label' => 'Contact', 'href' => 'pages/contact.php', 'id' => 'contact', 'active' => $currentPage === 'contact.php'],
 ];
 ?>
 
 <header class="agro-nav" id="agroNav">
     <nav class="agro-nav__inner">
 
-        <!-- LEFT: Logo -->
-        <a href="#" class="agro-nav__logo">
+        <a href="pages/home.php" class="agro-nav__logo">
             <img src="assets/images/logo2.png" alt="UIDIGITAX" class="agro-nav__logo-img">
         </a>
 
-        <!-- CENTER: Tab Pills -->
         <div class="agro-nav__tabs-wrap">
             <ul class="agro-nav__tabs" id="agroTabs">
                 <?php foreach ($nav_tabs as $tab): ?>
@@ -32,7 +32,6 @@ $nav_tabs = [
             </ul>
         </div>
 
-        <!-- RIGHT: Settings + Avatar + Hamburger -->
         <div class="agro-nav__actions">
             <button class="agro-nav__settings" id="settingsBtn" aria-label="Settings">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
@@ -52,7 +51,6 @@ $nav_tabs = [
                 <img src="assets/images/hero.png" alt="User Avatar" class="agro-nav__avatar-img" />
             </button>
 
-            <!-- Hamburger (mobile only) -->
             <button class="agro-nav__hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
                 <span></span>
                 <span></span>
@@ -62,7 +60,6 @@ $nav_tabs = [
 
     </nav>
 
-    <!-- Mobile slide-down menu -->
     <div class="agro-nav__mobile-menu" id="mobileMenu" aria-hidden="true">
         <ul class="agro-nav__mobile-tabs">
             <?php foreach ($nav_tabs as $tab): ?>

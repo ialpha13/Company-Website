@@ -9,7 +9,6 @@ if ($mysqli->connect_errno) {
     die('Database connection failed: ' . $mysqli->connect_error);
 }
 
-// Create table if it does not exist
 $createTable = "CREATE TABLE IF NOT EXISTS contact_submissions (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(120) NOT NULL,

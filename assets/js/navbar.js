@@ -47,6 +47,8 @@
     /* Tab click handler */
     tabs.forEach(tab => {
         tab.addEventListener('click', function (e) {
+            const href = this.getAttribute('href') || '';
+            if (!href.startsWith('#')) return;
             e.preventDefault();
             setActiveTab(this);
         });
@@ -100,6 +102,8 @@
         /* Sync active state between desktop & mobile tabs */
         mobileTabs.forEach(mTab => {
             mTab.addEventListener('click', function (e) {
+                const href = this.getAttribute('href') || '';
+                if (!href.startsWith('#')) return;
                 e.preventDefault();
                 const tabId = this.dataset.tab;
 
