@@ -1,10 +1,12 @@
 <?php
 $rootPath = rtrim(dirname(dirname($_SERVER['SCRIPT_NAME'])), '/\\');
 $baseUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . ($rootPath ? $rootPath : '') . '/';
-$servicesPath = __DIR__ . '/../data/services.json';
+$servicesPath = dirname(__DIR__) . '/data/services.json';
 $services = [];
 $service = null;
-$requestedSlug = trim((string)($_GET['service'] ?? ''));
+$portfolioSlug = $portfolioSlug ?? '';
+$portfolioCss = $portfolioCss ?? '';
+$portfolioJs = $portfolioJs ?? '';
 
 if (is_file($servicesPath)) {
     $decoded = json_decode(file_get_contents($servicesPath), true);
@@ -14,14 +16,23 @@ if (is_file($servicesPath)) {
 }
 
 foreach ($services as $item) {
-    if (($item['slug'] ?? '') === $requestedSlug) {
+    if (($item['slug'] ?? '') === $portfolioSlug) {
         $service = $item;
         break;
     }
 }
 
-if ($service === null && !empty($services)) {
-    $service = $services[0];
+if ($service === null) {
+    http_response_code(404);
+    $service = [
+        'title' => 'Service Portfolio',
+        'detail_intro' => 'The requested service portfolio could not be found.',
+        'tags' => [],
+        'overview' => [],
+        'deliverables' => [],
+        'portfolio_highlights' => [],
+        'media' => [],
+    ];
 }
 ?>
 <!DOCTYPE html>
@@ -36,11 +47,14 @@ if ($service === null && !empty($services)) {
     <base href="<?php echo $baseUrl; ?>">
     <link rel="stylesheet" href="assets/css/navbar.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
-    <link rel="stylesheet" href="assets/css/service-portfolio.css" />
+    <link rel="stylesheet" href="assets/css/portfolios/base.css" />
+    <?php if ($portfolioCss !== ''): ?>
+        <link rel="stylesheet" href="<?php echo htmlspecialchars($portfolioCss); ?>" />
+    <?php endif; ?>
 </head>
 <body>
 
-<?php include __DIR__ . '/../includes/navbar.php'; ?>
+<?php include dirname(__DIR__) . '/includes/navbar.php'; ?>
 
 <main class="service-portfolio-page">
     <section class="service-portfolio-hero">
@@ -130,10 +144,13 @@ if ($service === null && !empty($services)) {
     </section>
 </main>
 
-<?php include __DIR__ . '/../includes/footer.php'; ?>
+<?php include dirname(__DIR__) . '/includes/footer.php'; ?>
 
 <script src="assets/js/navbar.js"></script>
 <script src="assets/js/footer.js"></script>
-<script src="assets/js/service-portfolio.js"></script>
+<script src="assets/js/portfolios/base.js"></script>
+<?php if ($portfolioJs !== ''): ?>
+    <script src="<?php echo htmlspecialchars($portfolioJs); ?>"></script>
+<?php endif; ?>
 </body>
 </html>

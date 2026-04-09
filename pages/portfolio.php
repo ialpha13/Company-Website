@@ -1,44 +1,29 @@
 <?php
 $rootPath = rtrim(dirname(dirname($_SERVER['SCRIPT_NAME'])), '/\\');
 $baseUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . ($rootPath ? $rootPath : '') . '/';
-$projects = [
-    [
-        'category' => 'Website Development',
-        'title' => 'Brand-first corporate website redesign',
-        'description' => 'A cleaner, conversion-aware website structure built to elevate trust, sharpen messaging, and improve lead quality.',
-        'points' => ['Custom page architecture', 'Responsive UI system', 'Clear conversion flow'],
-    ],
-    [
-        'category' => 'SEO + Content',
-        'title' => 'Search visibility growth campaign',
-        'description' => 'An SEO-led content and technical improvement project focused on discoverability, authority, and sustainable organic traffic growth.',
-        'points' => ['Keyword strategy', 'On-page optimization', 'Performance tracking'],
-    ],
-    [
-        'category' => 'Social Media',
-        'title' => 'Cross-platform content management system',
-        'description' => 'A brand content framework designed to improve consistency, increase engagement, and simplify publishing cadence.',
-        'points' => ['Content planning', 'Creative rollout', 'Monthly reporting'],
-    ],
-    [
-        'category' => 'Creative Design',
-        'title' => 'Identity refresh for a modern digital brand',
-        'description' => 'A refined visual system built to make the brand more memorable across web, social, and campaign touchpoints.',
-        'points' => ['Brand direction', 'Visual asset kit', 'Campaign-ready creative'],
-    ],
-    [
-        'category' => 'Video Editing',
-        'title' => 'Short-form launch content package',
-        'description' => 'A motion-first set of launch assets tailored for social distribution, paid campaigns, and product storytelling.',
-        'points' => ['Reels and shorts', 'Promo cutdowns', 'Platform formatting'],
-    ],
-    [
-        'category' => 'Digital Marketing',
-        'title' => 'Lead generation campaign optimization',
-        'description' => 'A digital campaign system balancing paid traffic, messaging refinement, and better conversion tracking.',
-        'points' => ['Audience targeting', 'Ad creative testing', 'Conversion reporting'],
-    ],
-];
+$servicesPath = __DIR__ . '/../data/services.json';
+$services = [];
+if (is_file($servicesPath)) {
+    $decoded = json_decode(file_get_contents($servicesPath), true);
+    if (is_array($decoded)) {
+        $services = $decoded;
+    }
+}
+
+$galleryItems = [];
+foreach ($services as $service) {
+    foreach (($service['media'] ?? []) as $mediaIndex => $media) {
+        $galleryItems[] = [
+            'service_title' => $service['title'] ?? 'Service',
+            'service_slug' => $service['slug'] ?? '',
+            'type' => $media['type'] ?? 'screenshot',
+            'title' => $media['title'] ?? ($service['title'] ?? 'Portfolio Media'),
+            'caption' => $media['caption'] ?? ($service['description'] ?? ''),
+            'asset' => $media['asset'] ?? 'assets/images/hero.png',
+            'size' => ($mediaIndex % 3 === 0) ? 'large' : (($mediaIndex % 3 === 1) ? 'wide' : 'standard'),
+        ];
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,46 +42,102 @@ $projects = [
 <body>
 <?php include __DIR__ . '/../includes/navbar.php'; ?>
 
-<main class="page-shell">
-    <section class="page-hero">
-        <div class="page-hero__inner">
-            <span class="page-pill">Portfolio</span>
-            <h1>Selected digital work built to improve how brands look, move, and grow.</h1>
-            <p>Our portfolio reflects the kind of digital thinking UIDigitax brings to every project: stronger positioning, cleaner execution, and work designed to perform in real business contexts.</p>
-            <div class="page-actions">
-                <a href="mailto:contact@uidigitax.com" class="page-btn page-btn--primary">Discuss Your Project</a>
-                <a href="pages/services.php" class="page-btn page-btn--ghost">Explore Services</a>
+<main class="portfolio-page">
+    <section class="portfolio-hero" id="portfolioGallery">
+        <div class="portfolio-hero__inner">
+            <div class="portfolio-hero__track portfolio-hero__track--left">
+                <div class="portfolio-hero__lane">
+                    <?php foreach (array_merge($galleryItems, $galleryItems) as $item): ?>
+                        <article class="hero-media-tile hero-media-tile--<?php echo htmlspecialchars($item['size']); ?><?php echo ($item['type'] ?? '') === 'video' ? ' hero-media-tile--video' : ''; ?>">
+                            <div class="hero-media-tile__visual" style="background-image:
+                                linear-gradient(180deg, rgba(9, 15, 12, 0.08) 0%, rgba(9, 15, 12, 0.68) 100%),
+                                url('<?php echo htmlspecialchars($item['asset']); ?>');">
+                                <div class="hero-media-tile__meta">
+                                    <span class="hero-media-tile__type"><?php echo htmlspecialchars(($item['type'] ?? 'media') === 'video' ? 'Video Preview' : 'Screenshot'); ?></span>
+                                    <strong><?php echo htmlspecialchars($item['title']); ?></strong>
+                                    <p><?php echo htmlspecialchars($item['service_title']); ?></p>
+                                </div>
+                                <?php if (($item['type'] ?? '') === 'video'): ?>
+                                    <span class="hero-media-tile__play" aria-hidden="true"></span>
+                                <?php endif; ?>
+                            </div>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
+            <div class="portfolio-hero__track portfolio-hero__track--right">
+                <div class="portfolio-hero__lane">
+                    <?php foreach (array_merge(array_reverse($galleryItems), array_reverse($galleryItems)) as $item): ?>
+                        <article class="hero-media-tile hero-media-tile--<?php echo htmlspecialchars($item['size']); ?><?php echo ($item['type'] ?? '') === 'video' ? ' hero-media-tile--video' : ''; ?>">
+                            <div class="hero-media-tile__visual" style="background-image:
+                                linear-gradient(180deg, rgba(9, 15, 12, 0.08) 0%, rgba(9, 15, 12, 0.68) 100%),
+                                url('<?php echo htmlspecialchars($item['asset']); ?>');">
+                                <div class="hero-media-tile__meta">
+                                    <span class="hero-media-tile__type"><?php echo htmlspecialchars(($item['type'] ?? 'media') === 'video' ? 'Video Preview' : 'Screenshot'); ?></span>
+                                    <strong><?php echo htmlspecialchars($item['title']); ?></strong>
+                                    <p><?php echo htmlspecialchars($item['service_title']); ?></p>
+                                </div>
+                                <?php if (($item['type'] ?? '') === 'video'): ?>
+                                    <span class="hero-media-tile__play" aria-hidden="true"></span>
+                                <?php endif; ?>
+                            </div>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="page-section">
-        <div class="page-section__heading">
-            <span class="page-pill">Featured Work</span>
-            <h2>Projects shaped around clarity, growth, and creative precision.</h2>
+    <section class="portfolio-cards">
+        <div class="portfolio-cards__intro">
+            <span class="portfolio-pill">Service Portfolios</span>
+            <h2>Choose a service and continue into its dedicated portfolio page.</h2>
+            <p>Each card represents a focused service line. Hover to reveal the next step, whether you want to explore the portfolio details or start a conversation about that service.</p>
         </div>
-        <div class="page-grid page-grid--three">
-            <?php foreach ($projects as $project): ?>
-                <article class="page-card">
-                    <span class="page-card__kicker"><?php echo htmlspecialchars($project['category']); ?></span>
-                    <h3><?php echo htmlspecialchars($project['title']); ?></h3>
-                    <p><?php echo htmlspecialchars($project['description']); ?></p>
-                    <ul class="page-list">
-                        <?php foreach ($project['points'] as $point): ?>
-                            <li><?php echo htmlspecialchars($point); ?></li>
-                        <?php endforeach; ?>
-                    </ul>
+
+        <div class="portfolio-card-grid">
+            <?php foreach ($services as $index => $service): ?>
+                <?php
+                $portfolioUrl = 'portfolios/' . rawurlencode($service['slug'] ?? ('service-' . $index)) . '.php';
+                $coverMedia = $service['media'][0] ?? null;
+                ?>
+                <article class="portfolio-card" data-portfolio-card>
+                    <div class="portfolio-card__inner">
+                        <div class="portfolio-card__face portfolio-card__face--front" style="background-image:
+                            linear-gradient(180deg, rgba(8, 13, 11, 0.12) 0%, rgba(8, 13, 11, 0.78) 100%),
+                            url('<?php echo htmlspecialchars($coverMedia['asset'] ?? 'assets/images/hero.png'); ?>');">
+                            <span class="portfolio-card__index"><?php echo str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT); ?></span>
+                            <div class="portfolio-card__front-copy">
+                                <span class="portfolio-pill portfolio-pill--muted">Portfolio</span>
+                                <h3><?php echo htmlspecialchars($service['title'] ?? 'Service'); ?></h3>
+                                <p><?php echo htmlspecialchars($service['description'] ?? ''); ?></p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-card__face portfolio-card__face--back">
+                            <span class="portfolio-pill">Ready To Explore</span>
+                            <h3><?php echo htmlspecialchars($service['title'] ?? 'Service'); ?></h3>
+                            <p>Review the complete portfolio presentation for this service or discuss how it can be tailored for your brand.</p>
+                            <div class="portfolio-card__actions">
+                                <a href="<?php echo htmlspecialchars($portfolioUrl); ?>" class="portfolio-btn portfolio-btn--primary">View Portfolio</a>
+                                <a href="pages/contact.php" class="portfolio-btn portfolio-btn--ghost">Discuss Service</a>
+                            </div>
+                        </div>
+                    </div>
                 </article>
             <?php endforeach; ?>
         </div>
     </section>
 
-    <section class="page-cta">
-        <div class="page-cta__inner">
-            <h2>Want work like this for your brand?</h2>
-            <p>We combine design, technology, and marketing execution into digital outcomes that feel premium and perform with purpose.</p>
-            <div class="page-actions">
-                <a href="pages/contact.php" class="page-btn page-btn--primary">Start a Conversation</a>
+    <section class="portfolio-cta">
+        <div class="portfolio-cta__inner">
+            <span class="portfolio-pill">Next Step</span>
+            <h2>Looking for a digital partner that can combine strategy, design, development, and growth support?</h2>
+            <p>UIDigitax helps brands build a more complete digital presence, from polished interfaces and content systems to performance-focused marketing execution.</p>
+            <div class="portfolio-hero__actions">
+                <a href="pages/contact.php" class="portfolio-btn portfolio-btn--primary">Start a Conversation</a>
+                <a href="pages/services.php" class="portfolio-btn portfolio-btn--ghost">View Services</a>
             </div>
         </div>
     </section>
