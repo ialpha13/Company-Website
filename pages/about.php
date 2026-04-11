@@ -20,35 +20,46 @@ $baseUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 
 <?php include __DIR__ . '/../includes/navbar.php'; ?>
 
 <main class="page-shell">
-    <section class="page-hero">
-        <div class="page-hero__inner">
-            <span class="page-pill">About uidigitax</span>
-            <h1>A digital agency built to help ambitious brands move with more clarity and impact.</h1>
-            <p>UIDigitax brings together strategy, design, technology, and marketing to create digital experiences that look sharp, communicate clearly, and support measurable brand growth.</p>
-            <div class="page-actions">
-                <a href="pages/services.php" class="page-btn page-btn--primary">See What We Do</a>
-                <a href="pages/contact.php" class="page-btn page-btn--ghost">Get in Touch</a>
+    <section class="page-hero about-hero">
+        <div class="about-hero__card">
+            <div class="about-hero__media">
+                <div class="about-hero__scene" aria-hidden="true">
+                    <span class="about-hero__layer about-hero__layer--grid"></span>
+                    <span class="about-hero__layer about-hero__layer--ring"></span>
+                    <span class="about-hero__layer about-hero__layer--card about-hero__layer--card-one"></span>
+                    <span class="about-hero__layer about-hero__layer--card about-hero__layer--card-two"></span>
+                    <span class="about-hero__layer about-hero__layer--orb"></span>
+                    <span class="about-hero__layer about-hero__layer--beam"></span>
+                </div>
+                <div class="about-hero__media-copy">
+                    <h1>ABOUT US</h1>
+                    <p class="about-hero__subtitle">Your trusted digital growth partner</p>
+                </div>
+                <a href="#about-story" class="about-hero__scroll" aria-label="Scroll to about story">
+                    <span></span>
+                </a>
             </div>
+        </div>
+        <div class="about-hero__intro">
+            <h2 class="about-hero__big-headline">A digital agency built to help ambitious brands move with clarity and impact.</h2>
         </div>
     </section>
 
-    <section class="page-section about-metrics">
+    <section class="page-section about-metrics" id="about-story">
+        <span class="about-metrics__eyebrow">About Us</span>
+        <h2 class="about-metrics__section-title">Get to Know UIDigitax</h2>
         <div class="about-metrics__grid">
             <article class="about-metrics__card" data-reveal-card data-tilt-card>
-                <span class="about-metrics__label">Core Services</span>
-                <strong data-count="6">6</strong>
-                <p>Website development, SEO, social media, marketing, design, and video working together as one system.</p>
+                <strong data-count="6">6+</strong>
+                <span class="about-metrics__label">Core Services Offered</span>
             </article>
             <article class="about-metrics__card" data-reveal-card data-tilt-card>
-                <span class="about-metrics__label">Project Focus</span>
-                <strong data-count="100">100</strong>
-                <p>Every decision is shaped around clearer brand communication, stronger execution, and measurable digital progress.</p>
+                <strong data-count="360">360°</strong>
+                <span class="about-metrics__label">Brand Focus Coverage</span>
             </article>
-            <article class="about-metrics__card" data-reveal-card data-tilt-card>
-                <span class="about-metrics__label">Creative Direction</span>
-                <strong data-count="360">360</strong>
-                <p>We build digital ecosystems that connect strategy, aesthetics, performance, and long-term brand consistency.</p>
-            </article>
+            <div class="about-metrics__content">
+                <p>Elevate every brand touchpoint, embrace every opportunity. Digital growth awaits—let's make it unforgettable.</p>
+            </div>
         </div>
     </section>
 

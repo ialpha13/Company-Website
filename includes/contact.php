@@ -11,18 +11,26 @@ $email = trim($_POST['email'] ?? '');
 $phone = trim($_POST['phone'] ?? '');
 $message = trim($_POST['message'] ?? '');
 
-if (empty($name) || empty($email) || empty($message)) {
+if (empty($name) || empty($email) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     header('Location: ../pages/contact.php?status=error');
     exit;
 }
 
 $stmt = $mysqli->prepare('INSERT INTO contact_submissions (name, email, phone, message) VALUES (?, ?, ?, ?)');
+if (!$stmt) {
+    header('Location: ../pages/contact.php?status=error');
+    exit;
+}
 $stmt->bind_param('ssss', $name, $email, $phone, $message);
-$stmt->execute();
+if (!$stmt->execute()) {
+    $stmt->close();
+    header('Location: ../pages/contact.php?status=error');
+    exit;
+}
 $stmt->close();
 
 $to = 'contact@uidigitax.com';
-$subject = 'New inquiry from UIDIGITAX website';
+$subject = 'New inquiry from UIDigitax website';
 $body = "Name: $name\nEmail: $email\nPhone: $phone\n\nMessage:\n$message\n";
 $headers = "From: $email\r\nReply-To: $email\r\n";
 @mail($to, $subject, $body, $headers);

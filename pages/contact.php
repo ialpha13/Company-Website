@@ -11,110 +11,84 @@ $status = $_GET['status'] ?? '';
     <title>uidigitax | Contact</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <base href="<?php echo $baseUrl; ?>">
     <link rel="stylesheet" href="assets/css/contact.css" />
     <link rel="stylesheet" href="assets/css/navbar.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
 </head>
-<body>
+<body class="contact-page-body">
 <?php include __DIR__ . '/../includes/navbar.php'; ?>
 
-<main class="page-shell contact-shell">
-    <section class="page-hero contact-hero">
-        <div class="page-hero__inner contact-hero__inner">
-            <div class="contact-hero__copy">
-                <span class="page-pill">Contact UIDigitax</span>
-                <h1>Let’s shape the next digital move for your brand with more clarity, confidence, and momentum.</h1>
-                <p>Whether you need a website, stronger SEO, content planning, social media management, creative design, or video editing, UIDigitax is ready to help define the right next step.</p>
-                <div class="page-actions">
-                    <a href="#contactForm" class="page-btn page-btn--primary">Start Your Inquiry</a>
-                    <a href="pages/services.php" class="page-btn page-btn--ghost">Explore Services</a>
-                </div>
-            </div>
-            <div class="contact-hero__panel" data-reveal-card>
-                <div class="contact-hero__panel-item">
-                    <span class="contact-hero__label">Email</span>
-                    <a href="mailto:contact@uidigitax.com">contact@uidigitax.com</a>
-                </div>
-                <div class="contact-hero__panel-item">
-                    <span class="contact-hero__label">Call</span>
-                    <a href="tel:+923169396919">+923169396919</a>
-                </div>
-                <div class="contact-hero__panel-item">
-                    <span class="contact-hero__label">Response Window</span>
-                    <strong>Usually within 24 hours</strong>
-                </div>
-                <div class="contact-hero__pill-row">
-                    <span>Web</span>
-                    <span>SEO</span>
-                    <span>Social</span>
-                    <span>Creative</span>
-                    <span>Video</span>
-                </div>
-            </div>
+<div class="contact-progress" aria-hidden="true"></div>
+<div class="contact-cursor-glow" aria-hidden="true"></div>
+
+<main class="contact-shell">
+    <section class="contact-frame">
+        <div class="contact-frame__noise" aria-hidden="true"></div>
+
+        <header class="contact-hero" data-reveal-card>
+            <span class="contact-eyebrow">Contact</span>
+            <h1>Contact our team of experts</h1>
+        </header>
+
+        <div class="contact-quote" data-reveal-card>
+            <label>
+                <span>Service</span>
+                <input type="text" value="Website, SEO, Marketing">
+            </label>
+            <label>
+                <span>Project Type</span>
+                <input type="text" value="Launch or improve">
+            </label>
+            <label>
+                <span>Date</span>
+                <input type="text" value="DD / MM / YYYY">
+            </label>
+            <label>
+                <span>Time</span>
+                <input type="text" value="12:00">
+            </label>
+            <label>
+                <span>Team</span>
+                <input type="text" value="-  1  +">
+            </label>
+            <a href="#inquiry" class="contact-quote__button">Request Quote</a>
         </div>
-    </section>
 
-    <section class="page-section contact-links">
-        <div class="contact-links__grid">
-            <article class="contact-links__card" data-reveal-card data-tilt-card>
-                <span class="contact-links__kicker">Direct Email</span>
-                <h3>Share your project brief.</h3>
-                <p>Send your goals, timeline, or current challenges and we’ll guide you toward the right digital direction.</p>
-                <a href="mailto:contact@uidigitax.com" class="page-btn page-btn--ghost">Email UIDigitax</a>
+        <section class="contact-grid" id="inquiry">
+            <article class="contact-method contact-method--dark" data-reveal-card data-tilt-card>
+                <span class="contact-method__icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 3.5a8.35 8.35 0 0 0-7.2 12.58L3.9 20.5l4.52-.9a8.35 8.35 0 1 0 3.62-16.1Zm0 1.55a6.8 6.8 0 1 1-3.04 12.9l-.24-.12-2.75.55.57-2.67-.15-.25A6.8 6.8 0 0 1 12.04 5.05Z"/></svg>
+                </span>
+                <h2>WhatsApp</h2>
+                <p>Get fast project clarity, timeline alignment, and direct conversation with UIDigitax.</p>
+                <a href="https://wa.me/923169396919">Start a new chat</a>
             </article>
-            <article class="contact-links__card" data-reveal-card data-tilt-card>
-                <span class="contact-links__kicker">Phone Support</span>
-                <h3>Talk through your goals directly.</h3>
-                <p>If you prefer a faster conversation, reach out by phone and we can discuss what kind of support makes sense.</p>
-                <a href="tel:+923169396919" class="page-btn page-btn--ghost">Call Now</a>
-            </article>
-            <article class="contact-links__card" data-reveal-card data-tilt-card>
-                <span class="contact-links__kicker">Service Fit</span>
-                <h3>Find the right service mix.</h3>
-                <p>We help brands connect strategy, websites, search, content, campaigns, and creative production into one system.</p>
-                <a href="pages/services.php" class="page-btn page-btn--ghost">View Services</a>
-            </article>
-        </div>
-    </section>
 
-    <section class="page-section contact-main">
-        <div class="contact-main__layout">
-            <div class="contact-main__sidebar">
-                <article class="contact-main__panel" data-reveal-card>
-                    <span class="page-pill">Reach Out</span>
-                    <h3>Contact UIDigitax directly.</h3>
-                    <p>Share a little about your brand, project, or growth goal and we’ll follow up with the right next steps.</p>
-                    <div class="contact-main__items">
-                        <div class="contact-main__item">
-                            <strong>Email</strong>
-                            <a href="mailto:contact@uidigitax.com">contact@uidigitax.com</a>
-                        </div>
-                        <div class="contact-main__item">
-                            <strong>Phone</strong>
-                            <a href="tel:+923169396919">+923169396919</a>
-                        </div>
-                        <div class="contact-main__item">
-                            <strong>Focus</strong>
-                            <span>Website Development, SEO, Social Media, Digital Marketing, Creative Design, and Video Editing</span>
-                        </div>
-                    </div>
-                </article>
-                <article class="contact-main__panel contact-main__panel--soft" data-reveal-card>
-                    <span class="page-pill">What Happens Next</span>
-                    <ul class="contact-main__steps">
-                        <li>We review your message and project needs.</li>
-                        <li>We suggest the most relevant service direction.</li>
-                        <li>We follow up with the right next steps for your brand.</li>
-                    </ul>
-                </article>
-            </div>
+            <article class="contact-method contact-method--dark" data-reveal-card data-tilt-card>
+                <span class="contact-method__icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.77 4.32 3.63 10.94c-1.17.47-1.16 1.12-.21 1.41l4.4 1.37 1.68 5.17c.22.61.11.85.75.85.49 0 .71-.22.98-.49l2.36-2.29 4.91 3.63c.9.5 1.56.24 1.79-.84l3.23-15.21c.33-1.32-.5-1.92-1.75-1.22Zm-3.2 3.49-8.28 7.47-.32 3.42-1.55-5.06 10.15-5.83Z"/></svg>
+                </span>
+                <h2>Telegram</h2>
+                <p>Prefer lean messaging? Send goals, references, and blockers in one clean thread.</p>
+                <a href="https://t.me/uidigitax">Start a new chat</a>
+            </article>
 
-            <div class="contact-main__form-shell" id="contactForm" data-reveal-card>
-                <span class="page-pill">Project Inquiry</span>
-                <h3>Tell us what you are building.</h3>
-                <p>Use the form below to share your goals, current gaps, or the type of support you need from UIDigitax.</p>
+            <article class="contact-card contact-card--light contact-card--info" data-reveal-card data-tilt-card>
+                <a href="mailto:contact@uidigitax.com">contact@uidigitax.com</a>
+                <strong>+92 316 9396919</strong>
+                <p>Project communication is open during business hours.</p>
+            </article>
+
+            <article class="contact-card contact-card--form" data-reveal-card>
+                <p class="contact-form__title">Please select the reason for your inquiry <span>*</span></p>
+                <div class="contact-reasons" aria-label="Inquiry reasons">
+                    <button type="button">Make a Website</button>
+                    <button type="button">SEO</button>
+                    <button type="button">General Inquiry</button>
+                    <button type="button">Other</button>
+                </div>
 
                 <?php if ($status === 'success'): ?>
                     <div class="contact-status contact-status--success">
@@ -128,79 +102,99 @@ $status = $_GET['status'] ?? '';
                     </div>
                 <?php endif; ?>
 
-                <form class="page-form contact-form" action="includes/contact.php" method="post">
-                    <div class="page-form__grid">
+                <form class="contact-form" action="includes/contact.php" method="post">
+                    <div class="contact-form__row">
                         <label>
-                            Name
-                            <input type="text" name="name" required>
+                            <span>Full Name *</span>
+                            <input type="text" name="name" required placeholder="Oliver Hendricks">
                         </label>
                         <label>
-                            Email
-                            <input type="email" name="email" required>
+                            <span>Email Address *</span>
+                            <input type="email" name="email" required placeholder="name@company.com">
                         </label>
                     </div>
-                    <div class="page-form__grid">
+                    <div class="contact-form__row">
                         <label>
-                            Phone
-                            <input type="text" name="phone">
+                            <span>Phone Number</span>
+                            <input type="text" name="phone" placeholder="+92...">
                         </label>
                         <label>
-                            Interested Service
-                            <select name="service_interest">
-                                <option value="">Select a service</option>
-                                <option value="Website Development">Website Development</option>
-                                <option value="SEO">SEO</option>
-                                <option value="Social Media Management">Social Media Management</option>
-                                <option value="Digital Marketing">Digital Marketing</option>
-                                <option value="Creative Design">Creative Design</option>
-                                <option value="Video Editing">Video Editing</option>
-                            </select>
+                            <span>Company</span>
+                            <input type="text" placeholder="Your brand">
                         </label>
                     </div>
                     <label>
-                        Message
-                        <textarea name="message" required placeholder="Tell us about your brand, your goals, and the kind of support you need."></textarea>
+                        <span>Your Message</span>
+                        <textarea name="message" required placeholder="Tell us what you want to build, improve, or launch."></textarea>
                     </label>
-                    <button type="submit" class="page-btn page-btn--primary">Send Message</button>
+                    <div class="contact-form__footer">
+                        <label class="contact-form__check">
+                            <input type="checkbox" required>
+                            <span>I agree to UIDigitax Privacy Policy</span>
+                        </label>
+                        <button type="submit">Submit Your Inquiry</button>
+                    </div>
+                    <small>This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</small>
                 </form>
-            </div>
-        </div>
-    </section>
+            </article>
 
-    <section class="page-section contact-faq">
-        <div class="page-section__heading contact-faq__heading">
-            <span class="page-pill">Common Questions</span>
-            <h2>Helpful answers before you reach out.</h2>
-        </div>
-        <div class="contact-faq__list">
-            <article class="contact-faq__item" data-faq-item data-reveal-card>
-                <button type="button" class="contact-faq__toggle" data-faq-toggle aria-expanded="false">
-                    <span>What kind of businesses do you work with?</span>
-                    <span class="contact-faq__icon" aria-hidden="true">+</span>
-                </button>
-                <div class="contact-faq__content" data-faq-content hidden>
-                    <p>We work with brands that want stronger digital clarity, from growing businesses that need better structure to companies looking for sharper execution across design, websites, search, and content.</p>
+            <article class="contact-advisor" data-reveal-card data-tilt-card>
+                <div class="contact-advisor__head">
+                    <div class="contact-advisor__avatar" aria-hidden="true">U</div>
+                    <div>
+                        <h2>UIDigitax</h2>
+                        <span>Digital Growth Team</span>
+                    </div>
                 </div>
+                <p>"Share the real goal behind the request. We will help turn it into a cleaner direction, sharper scope, and practical next step."</p>
+                <a href="pages/about.php">Meet the team</a>
             </article>
-            <article class="contact-faq__item" data-faq-item data-reveal-card>
-                <button type="button" class="contact-faq__toggle" data-faq-toggle aria-expanded="false">
-                    <span>Can I contact you for one service or a full digital package?</span>
-                    <span class="contact-faq__icon" aria-hidden="true">+</span>
-                </button>
-                <div class="contact-faq__content" data-faq-content hidden>
-                    <p>Both. Some clients reach out for a single service like SEO or website development, while others need a connected approach across multiple digital areas.</p>
-                </div>
-            </article>
-            <article class="contact-faq__item" data-faq-item data-reveal-card>
-                <button type="button" class="contact-faq__toggle" data-faq-toggle aria-expanded="false">
-                    <span>How soon will UIDigitax respond?</span>
-                    <span class="contact-faq__icon" aria-hidden="true">+</span>
-                </button>
-                <div class="contact-faq__content" data-faq-content hidden>
-                    <p>We usually respond within 24 hours, and sooner when possible. The more context you share in your message, the more useful our first reply can be.</p>
-                </div>
-            </article>
-        </div>
+        </section>
+
+        <section class="contact-locations" id="locations">
+            <div class="contact-locations__intro" data-reveal-card>
+                <h2>Our Office Locations</h2>
+                <p>UIDigitax supports digital projects with a remote-first workflow, clear communication, and flexible collaboration across markets.</p>
+            </div>
+
+            <div class="contact-locations__grid">
+                <article class="contact-location" data-reveal-card data-tilt-card>
+                    <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M58 15 43 23l-3 16-11 6 7 13-7 11 15 4 3 18 18 6 8-13 15-2 5-17-11-8 7-18-17-4Z"/></svg>
+                    <h3>Pakistan</h3>
+                    <p>Remote studio and digital project coordination for websites, SEO, social media, and creative execution.</p>
+                    <a href="tel:+923169396919">+92 316 9396919</a>
+                </article>
+
+                <article class="contact-location" data-reveal-card data-tilt-card>
+                    <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M25 62c10-24 33-34 56-24 12 5 20 15 18 28-2 17-21 28-42 24-18-3-34-11-32-28Z"/></svg>
+                    <h3>Global Remote</h3>
+                    <p>Strategy, design, marketing, and content collaboration for brands that need flexible digital growth support.</p>
+                    <a href="mailto:contact@uidigitax.com">contact@uidigitax.com</a>
+                </article>
+
+                <article class="contact-community contact-card--light" data-reveal-card data-tilt-card>
+                    <div class="contact-community__copy">
+                        <span>UIDigitax Updates</span>
+                        <h3>Get sharper digital insight from our studio.</h3>
+                        <p>Strategy, design, marketing ideas, and creative growth notes for brands building momentum.</p>
+                    </div>
+                    <div class="contact-socials">
+                        <a href="#" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8Zm4.2 3.3A4.7 4.7 0 1 1 7.3 12 4.7 4.7 0 0 1 12 7.3Zm0 2A2.7 2.7 0 1 0 14.7 12 2.7 2.7 0 0 0 12 9.3Zm5-2.2a1.1 1.1 0 1 1-1.1 1.1A1.1 1.1 0 0 1 17 7.1Z"/></svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.98H3.75V20h3.19V8.98ZM5.35 4a1.85 1.85 0 1 0 .02 3.7A1.85 1.85 0 0 0 5.35 4Zm14.9 9.68c0-3.1-1.65-4.54-3.86-4.54a3.33 3.33 0 0 0-3.01 1.66h-.04V8.98h-3.06V20h3.19v-5.46c0-1.44.27-2.84 2.06-2.84 1.77 0 1.8 1.65 1.8 2.93V20h3.19l-.27-6.32Z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 3H22l-6.8 7.78L23.2 21h-6.27l-4.9-6.41L6.4 21H3.3l7.28-8.32L2.9 3h6.43l4.43 5.86L18.9 3Zm-1.1 16.2h1.72L8.38 4.7H6.53L17.8 19.2Z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5V6.8c0-.82.2-1.3 1.42-1.3H17V2.2A20.7 20.7 0 0 0 14.31 2C11.65 2 9.83 3.62 9.83 6.6v1.9H6.82V12h3.01v9.8H14V12h2.92l.44-3.5H14Z"/></svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
     </section>
 </main>
 

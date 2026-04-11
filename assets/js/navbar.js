@@ -10,6 +10,7 @@
     const tabs      = document.querySelectorAll('.agro-nav__tab');
     const indicator = document.getElementById('tabIndicator');
     const tabsList  = document.getElementById('agroTabs');
+    let lastScrollY = window.scrollY;
 
     /* ── Sliding indicator ────────────────────────────────── */
     function moveIndicator(activeTab) {
@@ -57,11 +58,23 @@
     /* ── Scroll: increase opacity ─────────────────────────── */
     function handleScroll() {
         if (!nav) return;
-        if (window.scrollY > 80) {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY > 80) {
             nav.classList.add('agro-nav--scrolled');
         } else {
             nav.classList.remove('agro-nav--scrolled');
         }
+
+        if (currentScrollY <= 16) {
+            nav.classList.remove('agro-nav--hidden');
+        } else if (currentScrollY > lastScrollY && currentScrollY - lastScrollY > 6) {
+            nav.classList.add('agro-nav--hidden');
+        } else if (currentScrollY < lastScrollY) {
+            nav.classList.remove('agro-nav--hidden');
+        }
+
+        lastScrollY = currentScrollY;
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true });

@@ -4,6 +4,20 @@
     const revealItems = document.querySelectorAll('[data-reveal-card]');
     const tiltCards = document.querySelectorAll('[data-tilt-card]');
     const faqItems = document.querySelectorAll('[data-faq-item]');
+    const reasonButtons = document.querySelectorAll('.contact-reasons button');
+    const spotlightCards = document.querySelectorAll('.contact-method, .contact-card, .contact-advisor, .contact-location, .contact-community');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canHover = window.matchMedia('(hover: hover)').matches;
+
+    const updateProgress = () => {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+        document.body.style.setProperty('--contact-progress', Math.min(Math.max(progress, 0), 1).toFixed(4));
+    };
+
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
 
     if ('IntersectionObserver' in window && revealItems.length) {
         const observer = new IntersectionObserver((entries, currentObserver) => {
@@ -34,7 +48,45 @@
         });
     });
 
-    if (!window.matchMedia('(hover: hover)').matches) return;
+    reasonButtons.forEach((button, index) => {
+        button.setAttribute('aria-pressed', index === 0 ? 'true' : 'false');
+        if (index === 0) button.classList.add('is-active');
+
+        button.addEventListener('click', () => {
+            reasonButtons.forEach((item) => {
+                item.classList.remove('is-active');
+                item.setAttribute('aria-pressed', 'false');
+            });
+
+            button.classList.add('is-active');
+            button.setAttribute('aria-pressed', 'true');
+        });
+    });
+
+    if (reduceMotion || !canHover) return;
+
+    document.body.classList.add('has-contact-pointer');
+
+    let pointerFrame = 0;
+    window.addEventListener('pointermove', (event) => {
+        if (pointerFrame) return;
+
+        pointerFrame = window.requestAnimationFrame(() => {
+            document.body.style.setProperty('--contact-glow-x', event.clientX + 'px');
+            document.body.style.setProperty('--contact-glow-y', event.clientY + 'px');
+            pointerFrame = 0;
+        });
+    }, { passive: true });
+
+    spotlightCards.forEach((card) => {
+        card.addEventListener('pointermove', (event) => {
+            const rect = card.getBoundingClientRect();
+            const x = ((event.clientX - rect.left) / rect.width) * 100;
+            const y = ((event.clientY - rect.top) / rect.height) * 100;
+            card.style.setProperty('--card-x', x.toFixed(2) + '%');
+            card.style.setProperty('--card-y', y.toFixed(2) + '%');
+        });
+    });
 
     tiltCards.forEach((card) => {
         card.addEventListener('mousemove', (event) => {

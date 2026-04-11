@@ -21,7 +21,8 @@
     z-index: 1000;
     padding: 10px 24px;
     background: transparent;
-    transition: padding 0.3s ease;
+    transform: translateY(0);
+    transition: padding 0.3s ease, transform 0.3s ease;
 }
 
 .agro-nav::before {
@@ -46,6 +47,10 @@
 
 .agro-nav.agro-nav--scrolled::before {
     opacity: 1;
+}
+
+.agro-nav.agro-nav--hidden {
+    transform: translateY(calc(-100% - 12px));
 }
 
 /* ---------- Inner layout ---------- */

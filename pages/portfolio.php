@@ -39,12 +39,17 @@ foreach ($services as $service) {
     <link rel="stylesheet" href="assets/css/navbar.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
 </head>
-<body>
+<body class="portfolio-page-body">
 <?php include __DIR__ . '/../includes/navbar.php'; ?>
 
 <main class="portfolio-page">
-    <section class="portfolio-hero" id="portfolioGallery">
+    <section class="portfolio-hero portfolio-panel" id="portfolioGallery" data-portfolio-panel>
         <div class="portfolio-hero__inner">
+            <div class="portfolio-hero__intro">
+                <span class="portfolio-pill">Portfolio</span>
+                <h1>Gallery</h1>
+                <p>A moving overview of selected UIDigitax work across web, design, marketing, content, and motion.</p>
+            </div>
             <div class="portfolio-hero__track portfolio-hero__track--left">
                 <div class="portfolio-hero__lane">
                     <?php foreach (array_merge($galleryItems, $galleryItems) as $item): ?>
@@ -89,47 +94,65 @@ foreach ($services as $service) {
         </div>
     </section>
 
-    <section class="portfolio-cards">
-        <div class="portfolio-cards__heading">
-            <span class="portfolio-pill">Portfolio's</span>
-            <h2>Explore the portfolio's of the creative solutions</h2>
-        </div>
-
-        <div class="portfolio-card-grid">
-            <?php foreach ($services as $index => $service): ?>
-                <?php
-                $portfolioUrl = 'portfolios/' . rawurlencode($service['slug'] ?? ('service-' . $index)) . '.php';
-                $coverMedia = $service['media'][0] ?? null;
-                ?>
-                <article class="portfolio-card" data-portfolio-card>
-                    <div class="portfolio-card__inner">
-                        <div class="portfolio-card__face portfolio-card__face--front" style="background-image:
-                            linear-gradient(180deg, rgba(8, 13, 11, 0.12) 0%, rgba(8, 13, 11, 0.78) 100%),
-                            url('<?php echo htmlspecialchars($coverMedia['asset'] ?? 'assets/images/hero.png'); ?>');">
-                            <span class="portfolio-card__index"><?php echo str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT); ?></span>
-                            <div class="portfolio-card__front-copy">
-                                <span class="portfolio-pill portfolio-pill--muted">Portfolio</span>
-                                <h3><?php echo htmlspecialchars($service['title'] ?? 'Service'); ?></h3>
-                                <p><?php echo htmlspecialchars($service['description'] ?? ''); ?></p>
-                            </div>
-                        </div>
-
-                        <div class="portfolio-card__face portfolio-card__face--back">
-                            <span class="portfolio-pill">Ready To Explore</span>
-                            <h3><?php echo htmlspecialchars($service['title'] ?? 'Service'); ?></h3>
-                            <p>Review the complete portfolio presentation for this service or discuss how it can be tailored for your brand.</p>
-                            <div class="portfolio-card__actions">
-                                <a href="<?php echo htmlspecialchars($portfolioUrl); ?>" class="portfolio-btn portfolio-btn--primary">View Portfolio</a>
-                                <a href="pages/contact.php" class="portfolio-btn portfolio-btn--ghost">Discuss Service</a>
-                            </div>
-                        </div>
+    <?php foreach ($services as $index => $service): ?>
+        <?php
+        $portfolioUrl = 'portfolios/' . rawurlencode($service['slug'] ?? ('service-' . $index)) . '.php';
+        $coverMedia = $service['media'][0] ?? null;
+        $serviceTags = array_slice($service['tags'] ?? [], 0, 3);
+        $serviceFeatures = array_slice($service['features'] ?? [], 0, 3);
+        $panelTone = ($index % 3) + 1;
+        ?>
+        <section class="portfolio-cards portfolio-panel portfolio-service-panel portfolio-service-panel--tone-<?php echo $panelTone; ?>" id="portfolioService<?php echo $index + 1; ?>" data-portfolio-panel data-panel-index="<?php echo $index + 1; ?>">
+            <article class="portfolio-service-card">
+                <div class="portfolio-service-card__media" style="background-image:
+                    linear-gradient(180deg, rgba(8, 13, 11, 0.16) 0%, rgba(8, 13, 11, 0.72) 100%),
+                    url('<?php echo htmlspecialchars($coverMedia['asset'] ?? 'assets/images/hero.png'); ?>');">
+                    <span class="portfolio-card__index"><?php echo str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT); ?></span>
+                    <div class="portfolio-service-card__overlay">
+                        <span class="portfolio-pill portfolio-pill--muted">Portfolio</span>
+                        <h2><?php echo htmlspecialchars($service['title'] ?? 'Service'); ?></h2>
+                        <p><?php echo htmlspecialchars($service['description'] ?? ''); ?></p>
                     </div>
-                </article>
-            <?php endforeach; ?>
-        </div>
-    </section>
+                </div>
 
-    <section class="portfolio-cta">
+                <div class="portfolio-service-card__content">
+                    <div class="portfolio-service-card__meta">
+                        <span class="portfolio-service-card__page">Service <?php echo str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT); ?></span>
+                        <span class="portfolio-service-card__line"></span>
+                    </div>
+
+                    <?php if (!empty($serviceTags)): ?>
+                        <div class="portfolio-service-card__group">
+                            <span class="portfolio-service-card__label">Tags</span>
+                            <div class="portfolio-service-card__tags">
+                                <?php foreach ($serviceTags as $tag): ?>
+                                    <span class="portfolio-service-tag"><?php echo htmlspecialchars($tag); ?></span>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (!empty($serviceFeatures)): ?>
+                        <div class="portfolio-service-card__group">
+                            <span class="portfolio-service-card__label">Highlights</span>
+                            <ul class="portfolio-service-card__list">
+                                <?php foreach ($serviceFeatures as $feature): ?>
+                                    <li><?php echo htmlspecialchars($feature); ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="portfolio-card__actions">
+                        <a href="<?php echo htmlspecialchars($portfolioUrl); ?>" class="portfolio-btn portfolio-btn--primary">View Portfolio</a>
+                        <a href="pages/contact.php" class="portfolio-btn portfolio-btn--ghost">Discuss Service</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+    <?php endforeach; ?>
+
+    <section class="portfolio-cta portfolio-panel" id="portfolioContact" data-portfolio-panel>
         <div class="portfolio-cta__inner">
             <span class="portfolio-pill">Next Step</span>
             <h2>Looking for a digital partner that can combine strategy, design, development, and growth support?</h2>

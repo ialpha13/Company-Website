@@ -4,6 +4,8 @@
     const revealCards = document.querySelectorAll('[data-reveal-card]');
     const counterNodes = document.querySelectorAll('[data-count]');
     const tiltCards = document.querySelectorAll('[data-tilt-card]');
+    const aboutHero = document.querySelector('.about-hero__media');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if ('IntersectionObserver' in window && revealCards.length) {
         const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -55,7 +57,23 @@
         });
     }
 
-    if (!window.matchMedia('(hover: hover)').matches) return;
+    if (reduceMotion || !window.matchMedia('(hover: hover)').matches) return;
+
+    if (aboutHero) {
+        aboutHero.addEventListener('mousemove', (event) => {
+            const rect = aboutHero.getBoundingClientRect();
+            const offsetX = (event.clientX - rect.left) / rect.width - 0.5;
+            const offsetY = (event.clientY - rect.top) / rect.height - 0.5;
+
+            aboutHero.style.setProperty('--about-tilt-x', (offsetY * -5).toFixed(2) + 'deg');
+            aboutHero.style.setProperty('--about-tilt-y', (offsetX * 8).toFixed(2) + 'deg');
+        });
+
+        aboutHero.addEventListener('mouseleave', () => {
+            aboutHero.style.removeProperty('--about-tilt-x');
+            aboutHero.style.removeProperty('--about-tilt-y');
+        });
+    }
 
     tiltCards.forEach((card) => {
         card.addEventListener('mousemove', (event) => {
