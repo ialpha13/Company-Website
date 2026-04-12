@@ -76,64 +76,101 @@ if ($service === null) {
         </div>
     </section>
 
-    <section class="service-portfolio-section">
-        <div class="service-portfolio-copy">
-            <div class="service-portfolio-heading">
-                <span class="service-portfolio-pill">Overview</span>
-                <h2>What this service includes and how it creates value.</h2>
-            </div>
-            <div class="service-portfolio-copy__grid">
-                <div class="service-portfolio-richtext">
-                    <?php foreach (($service['overview'] ?? []) as $paragraph): ?>
-                        <p><?php echo htmlspecialchars($paragraph); ?></p>
+    <section class="service-portfolio-section service-portfolio-overview-section" id="portfolioOverview">
+        <?php
+        $overviewMedia = $service['media'] ?? [];
+        $videoCount = 0;
+        $imageCount = 0;
+        foreach ($overviewMedia as $overviewItem) {
+            if (($overviewItem['type'] ?? '') === 'video') {
+                $videoCount++;
+            } else {
+                $imageCount++;
+            }
+        }
+        ?>
+        <div class="service-portfolio-overview">
+            <aside class="service-portfolio-overview__rail" aria-label="Portfolio overview navigation">
+                <a href="pages/portfolio.php" class="service-portfolio-overview__brand">UIDigitax</a>
+                <div class="service-portfolio-overview__side-copy">
+                    <span>Showcase Overview</span>
+                    <h3><?php echo htmlspecialchars($service['title'] ?? 'Service Portfolio'); ?></h3>
+                    <p><?php echo htmlspecialchars($service['detail_intro'] ?? ($service['description'] ?? '')); ?></p>
+                </div>
+                <div class="service-portfolio-overview__stats" aria-label="Showcase media count">
+                    <div>
+                        <strong><?php echo count($overviewMedia); ?></strong>
+                        <span>Total Items</span>
+                    </div>
+                    <div>
+                        <strong><?php echo $imageCount; ?></strong>
+                        <span>Images</span>
+                    </div>
+                    <div>
+                        <strong><?php echo $videoCount; ?></strong>
+                        <span>Videos</span>
+                    </div>
+                </div>
+                <div class="service-portfolio-overview__dots" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                </div>
+            </aside>
+
+            <div class="service-portfolio-overview__main">
+                <div class="service-portfolio-heading service-portfolio-heading--showcase">
+                    <span class="service-portfolio-pill">Overview</span>
+                    <h2>Selected visuals, previews, and project moments.</h2>
+                </div>
+
+                <div class="service-portfolio-overview__gallery">
+                    <?php foreach (($service['media'] ?? []) as $mediaIndex => $media): ?>
+                        <article class="service-overview-media<?php echo ($media['type'] ?? '') === 'video' ? ' service-overview-media--video' : ''; ?>" data-service-media-card>
+                            <div class="service-overview-media__visual" style="background-image: linear-gradient(180deg, rgba(7, 10, 8, 0.03) 0%, rgba(7, 10, 8, 0.22) 52%, rgba(7, 10, 8, 0.78) 100%), url('<?php echo htmlspecialchars($media['asset'] ?? 'assets/images/hero.png'); ?>');">
+                                <?php if (($media['type'] ?? '') === 'video'): ?>
+                                    <span class="service-overview-media__play" aria-hidden="true"></span>
+                                <?php endif; ?>
+                            </div>
+                            <div class="service-overview-media__caption">
+                                <span><?php echo htmlspecialchars(($media['type'] ?? 'media') === 'video' ? 'Music Video' : 'Digital Asset'); ?></span>
+                                <h3><?php echo htmlspecialchars($media['title'] ?? 'Portfolio media'); ?></h3>
+                                <p><?php echo htmlspecialchars($media['caption'] ?? ''); ?></p>
+                            </div>
+                        </article>
                     <?php endforeach; ?>
                 </div>
-                <div class="service-portfolio-checklist">
-                    <div class="service-portfolio-panel">
-                        <h3>Deliverables</h3>
-                        <ul>
-                            <?php foreach (($service['deliverables'] ?? []) as $deliverable): ?>
-                                <li><?php echo htmlspecialchars($deliverable); ?></li>
-                            <?php endforeach; ?>
-                        </ul>
+
+                <div class="service-portfolio-overview__details">
+                    <div class="service-portfolio-richtext">
+                        <?php foreach (($service['overview'] ?? []) as $paragraph): ?>
+                            <p><?php echo htmlspecialchars($paragraph); ?></p>
+                        <?php endforeach; ?>
                     </div>
-                    <div class="service-portfolio-panel">
-                        <h3>Portfolio Highlights</h3>
-                        <ul>
-                            <?php foreach (($service['portfolio_highlights'] ?? []) as $highlight): ?>
-                                <li><?php echo htmlspecialchars($highlight); ?></li>
-                            <?php endforeach; ?>
-                        </ul>
+
+                    <div class="service-portfolio-checklist">
+                        <div class="service-portfolio-panel">
+                            <h3>Deliverables</h3>
+                            <ul>
+                                <?php foreach (($service['deliverables'] ?? []) as $deliverable): ?>
+                                    <li><?php echo htmlspecialchars($deliverable); ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                        <div class="service-portfolio-panel">
+                            <h3>Portfolio Highlights</h3>
+                            <ul>
+                                <?php foreach (($service['portfolio_highlights'] ?? []) as $highlight): ?>
+                                    <li><?php echo htmlspecialchars($highlight); ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="service-portfolio-section">
-        <div class="service-portfolio-heading">
-            <span class="service-portfolio-pill">Showcase</span>
-            <h2>Screenshots, video previews, and presentation assets for this service.</h2>
-        </div>
-        <div class="service-portfolio-media">
-            <?php foreach (($service['media'] ?? []) as $media): ?>
-                <article class="service-media-card<?php echo ($media['type'] ?? '') === 'video' ? ' service-media-card--video' : ''; ?>" data-service-media-card>
-                    <div class="service-media-card__visual" style="background-image: linear-gradient(180deg, rgba(19, 23, 18, 0.18) 0%, rgba(19, 23, 18, 0.72) 100%), url('<?php echo htmlspecialchars($media['asset'] ?? 'assets/images/hero.png'); ?>');">
-                        <span class="service-media-card__type"><?php echo htmlspecialchars(strtoupper($media['type'] ?? 'media')); ?></span>
-                        <?php if (($media['type'] ?? '') === 'video'): ?>
-                            <span class="service-media-card__play" aria-hidden="true"></span>
-                        <?php endif; ?>
-                    </div>
-                    <div class="service-media-card__content">
-                        <h3><?php echo htmlspecialchars($media['title'] ?? 'Media item'); ?></h3>
-                        <p><?php echo htmlspecialchars($media['caption'] ?? ''); ?></p>
-                    </div>
-                </article>
-            <?php endforeach; ?>
-        </div>
-    </section>
-
-    <section class="service-portfolio-section">
+    <section class="service-portfolio-section" id="portfolioContact">
         <div class="service-portfolio-cta">
             <h2>Need this service tailored to your brand?</h2>
             <p>UIDigitax can shape a version of this service around your goals, audience, and growth stage with the right mix of design, strategy, and execution.</p>

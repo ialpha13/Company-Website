@@ -87,6 +87,13 @@ body {
     letter-spacing: -0.04em;
 }
 
+.page-hero h1 {
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+}
+
 .page-hero p,
 .page-section__heading p,
 .page-cta p,
@@ -356,9 +363,18 @@ body {
     .page-cta__inner {
         padding: 24px;
     }
+
+    .page-hero h1 {
+        font-size: 34px;
+        line-height: 1.12;
+    }
 }
 
 @media (max-width: 480px) {
+    .page-hero h1 {
+        font-size: 29px;
+    }
+
     .page-btn {
         width: 100%;
     }

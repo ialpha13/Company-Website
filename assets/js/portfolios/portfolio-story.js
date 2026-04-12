@@ -1,11 +1,11 @@
 (function () {
     'use strict';
 
-    const revealItems = document.querySelectorAll('[data-ve-reveal]');
+    const revealItems = document.querySelectorAll('[data-story-reveal]');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     revealItems.forEach((item, index) => {
-        item.style.setProperty('--ve-delay', Math.min(index * 70, 350) + 'ms');
+        item.style.setProperty('--story-delay', Math.min(index * 70, 350) + 'ms');
     });
 
     if (!revealItems.length) return;

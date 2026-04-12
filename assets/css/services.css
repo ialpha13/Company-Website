@@ -85,9 +85,10 @@ body {
     margin: 18px 0 0;
     max-width: 860px;
     font-family: 'Syne', sans-serif;
-    font-size: clamp(34px, 5vw, 62px);
-    line-height: 1.02;
-    letter-spacing: -0.04em;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
 }
 
 .services-hero p {
@@ -583,6 +584,11 @@ body {
     .services-hero__inner {
         padding: 0;
         grid-template-columns: 1fr;
+    }
+
+    .services-hero h1 {
+        font-size: 34px;
+        line-height: 1.12;
     }
 
     .service-row__toggle {

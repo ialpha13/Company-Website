@@ -80,6 +80,13 @@ body {
     letter-spacing: -0.04em;
 }
 
+.blog-hero h1 {
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+}
+
 .blog-hero p,
 .blog-hero__aside li,
 .blog-card p,
@@ -688,8 +695,8 @@ body {
     }
 
     .blog-hero h1 {
-        font-size: clamp(2.15rem, 8vw, 3.05rem);
-        line-height: 1.03;
+        font-size: 34px;
+        line-height: 1.12;
         margin-top: 16px;
     }
 
@@ -813,7 +820,7 @@ body {
 
 @media (max-width: 560px) {
     .blog-hero h1 {
-        font-size: clamp(1.9rem, 9vw, 2.45rem);
+        font-size: 32px;
     }
 
     .blog-hero p {
@@ -895,8 +902,8 @@ body {
     }
 
     .blog-hero h1 {
-        font-size: clamp(1.72rem, 10vw, 2.05rem);
-        line-height: 1.04;
+        font-size: 29px;
+        line-height: 1.12;
     }
 
     .blog-hero p {
